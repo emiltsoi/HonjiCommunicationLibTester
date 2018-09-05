@@ -52,7 +52,7 @@
   <ItemGroup>
     <Reference Include="HonjiS1200CommLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\SiemensCommunicationLib\HonjiS1200CommLib\bin\Debug\netstandard2.0\HonjiS1200CommLib.dll</HintPath>
+      <HintPath>reference\HonjiS1200CommLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
