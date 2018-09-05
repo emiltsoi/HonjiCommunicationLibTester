@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
+using HonjiS1200CommLib;
 
 namespace SiemensCommunicatinLibTester
 {
@@ -20,9 +22,41 @@ namespace SiemensCommunicatinLibTester
     /// </summary>
     public partial class MainWindow : Window
     {
+        static S1200Client client = new S1200Client(); 
+        
         public MainWindow()
         {
             InitializeComponent();
+            DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(PlcSync);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            dispatcherTimer.Start();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
+            var result = client.ConnectToPLC(TextBoxIPAddress.GetLineText(0));
+            TextBoxResults.Text = client.GetErrorText(result);
+        }
+
+        private void ButtonDisconnect_Click(object sender, RoutedEventArgs e)
+        {
+            var result = client.Disconnect();
+            TextBoxResults.Text = client.GetErrorText(result);
+        }
+
+        private void PlcSync(object sender, EventArgs e)
+        {
+            if(client.IsConnected())
+                client.Synchronize();
+            CommandManager.InvalidateRequerySuggested();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (client.IsConnected())
+                client.Disconnect();
         }
     }
 }
