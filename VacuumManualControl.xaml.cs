@@ -23,11 +23,13 @@ namespace SiemensCommunicatinLibTester
     public partial class VacuumManualControl : UserControl
     {
         IS1200Client client;
+        IVacuumSystem vacuumSystem;
         public VacuumManualControl()
         {
             InitializeComponent();
             var myWin = (MainWindow)Application.Current.MainWindow;
             client = myWin.client;
+            vacuumSystem = client.GetDevices().GetVacuumSystem();
             DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
             dispatcherTimer.Tick += new EventHandler(UpdateDisplay);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
@@ -36,92 +38,92 @@ namespace SiemensCommunicatinLibTester
 
         private void BackingAngleValveOnButton_Click(object sender, RoutedEventArgs e)
         {
-            client.GetDevices().GetVacuumSystem().GetBackingAngleValve().ManuallyOpen();
+            vacuumSystem.GetBackingAngleValve().ManuallyOpen();
         }
 
         private void BackingAngleValveOffButton_Click(object sender, RoutedEventArgs e)
         {
-            client.GetDevices().GetVacuumSystem().GetBackingAngleValve().ManuallyClose();
+            vacuumSystem.GetBackingAngleValve().ManuallyClose();
         }
 
         private void BackingAngleValveClear_Click(object sender, RoutedEventArgs e)
         {
-            client.GetDevices().GetVacuumSystem().GetBackingAngleValve().ClearManualOperation();
+            vacuumSystem.GetBackingAngleValve().ClearManualOperation();
         }
 
         private void RoughingAngleValveOnButton_Click(object sender, RoutedEventArgs e)
         {
-            client.GetDevices().GetVacuumSystem().GetRoughingAngleValve().ManuallyOpen();
+            vacuumSystem.GetRoughingAngleValve().ManuallyOpen();
         }
 
         private void RoughingAngleValveOffButton_Click(object sender, RoutedEventArgs e)
         {
-            client.GetDevices().GetVacuumSystem().GetRoughingAngleValve().ManuallyClose();
+            vacuumSystem.GetRoughingAngleValve().ManuallyClose();
         }
 
         private void RoughingAngleValveClear_Click(object sender, RoutedEventArgs e)
         {
-            client.GetDevices().GetVacuumSystem().GetRoughingAngleValve().ClearManualOperation();
+            vacuumSystem.GetRoughingAngleValve().ClearManualOperation();
         }
 
         private void ChamberVentValveOnButton_Click(object sender, RoutedEventArgs e)
         {
-            client.GetDevices().GetVacuumSystem().GetChamberVentValve().ManuallyOpen();
+            vacuumSystem.GetChamberVentValve().ManuallyOpen();
         }
 
         private void ChamberVentValveOffButton_Click(object sender, RoutedEventArgs e)
         {
-            client.GetDevices().GetVacuumSystem().GetChamberVentValve().ManuallyClose();
+            vacuumSystem.GetChamberVentValve().ManuallyClose();
         }
 
         private void ChamberVentValveClear_Click(object sender, RoutedEventArgs e)
         {
-            client.GetDevices().GetVacuumSystem().GetChamberVentValve().ClearManualOperation();
+            vacuumSystem.GetChamberVentValve().ClearManualOperation();
         }
 
         private void TMPVentValveOnButton_Click(object sender, RoutedEventArgs e)
         {
-            client.GetDevices().GetVacuumSystem().GetTMPVentValve().ManuallyOpen();
+            vacuumSystem.GetTMPVentValve().ManuallyOpen();
         }
 
         private void TMPVentValveOffButton_Click(object sender, RoutedEventArgs e)
         {
-            client.GetDevices().GetVacuumSystem().GetTMPVentValve().ManuallyClose();
+            vacuumSystem.GetTMPVentValve().ManuallyClose();
         }
 
         private void TMPVentValveClear_Click(object sender, RoutedEventArgs e)
         {
-            client.GetDevices().GetVacuumSystem().GetTMPVentValve().ClearManualOperation();
+            vacuumSystem.GetTMPVentValve().ClearManualOperation();
         }
 
         private void RotaryPumpOnButton_Click(object sender, RoutedEventArgs e)
         {
-            client.GetDevices().GetVacuumSystem().GetRotaryPump().SetManualOn();
+            vacuumSystem.GetRotaryPump().SetManualOn();
         }
 
         private void RotaryPumpOffButton_Click(object sender, RoutedEventArgs e)
         {
-            client.GetDevices().GetVacuumSystem().GetRotaryPump().SetManualOff();
+            vacuumSystem.GetRotaryPump().SetManualOff();
         }
 
         private void RotaryPumpClear_Click(object sender, RoutedEventArgs e)
         {
-            client.GetDevices().GetVacuumSystem().GetRotaryPump().ResetManualOperation();
+            vacuumSystem.GetRotaryPump().ResetManualOperation();
         }
 
         private void DoorLockLockButton_Click(object sender, RoutedEventArgs e)
         {
-            client.GetDevices().GetVacuumSystem().GetDoor().ManualLockDoor();
+            vacuumSystem.GetDoor().ManualLockDoor();
         }
 
         private void DoorLockUnlockButton_Click(object sender, RoutedEventArgs e)
         {
-            client.GetDevices().GetVacuumSystem().GetDoor().ManualUnlockDoor();
+            vacuumSystem.GetDoor().ManualUnlockDoor();
         }
 
         private void DoorLockClear_Click(object sender, RoutedEventArgs e)
         {
-            client.GetDevices().GetVacuumSystem().GetDoor().ClearManualOperation();
+            vacuumSystem.GetDoor().ClearManualOperation();
         }
 
         private void UpdateDisplay(object sender, EventArgs e)
@@ -133,7 +135,7 @@ namespace SiemensCommunicatinLibTester
                 UpdateChamberVentValveState();
                 UpdateTMPVentValveState();
                 UpdateChamberVacuumReading();
-                UpdatePneumaticVacuumReading();
+                UpdatePiraniVacuumReading();
                 UpdateDoorState();
                 UpdateRotaryPumpState();
                 updateVacuumSwitchState();
@@ -144,11 +146,11 @@ namespace SiemensCommunicatinLibTester
         private void UpdateBackingAngleValveState()
         {
             string stateText;
-            if (client.GetDevices().GetVacuumSystem().GetBackingAngleValve().IsOpen())
+            if (vacuumSystem.GetBackingAngleValve().IsOpen())
                 stateText = "Open";
-            else if (client.GetDevices().GetVacuumSystem().GetBackingAngleValve().IsClosed())
+            else if (vacuumSystem.GetBackingAngleValve().IsClosed())
                 stateText = "Closed";
-            else if (client.GetDevices().GetVacuumSystem().GetBackingAngleValve().IsInError())
+            else if (vacuumSystem.GetBackingAngleValve().IsInError())
                 stateText = "Error";
             else
                 stateText = "Unknown";
@@ -158,11 +160,11 @@ namespace SiemensCommunicatinLibTester
         private void UpdateRoughingAngleValveState()
         {
             string stateText;
-            if (client.GetDevices().GetVacuumSystem().GetRoughingAngleValve().IsOpen())
+            if (vacuumSystem.GetRoughingAngleValve().IsOpen())
                 stateText = "Open";
-            else if (client.GetDevices().GetVacuumSystem().GetRoughingAngleValve().IsClosed())
+            else if (vacuumSystem.GetRoughingAngleValve().IsClosed())
                 stateText = "Closed";
-            else if (client.GetDevices().GetVacuumSystem().GetRoughingAngleValve().IsInError())
+            else if (vacuumSystem.GetRoughingAngleValve().IsInError())
                 stateText = "Error";
             else
                 stateText = "Unknown";
@@ -172,11 +174,11 @@ namespace SiemensCommunicatinLibTester
         private void UpdateChamberVentValveState()
         {
             string stateText;
-            if (client.GetDevices().GetVacuumSystem().GetChamberVentValve().IsOpen())
+            if (vacuumSystem.GetChamberVentValve().IsOpen())
                 stateText = "Open";
-            else if (client.GetDevices().GetVacuumSystem().GetChamberVentValve().IsClosed())
+            else if (vacuumSystem.GetChamberVentValve().IsClosed())
                 stateText = "Closed";
-            else if (client.GetDevices().GetVacuumSystem().GetChamberVentValve().IsInError())
+            else if (vacuumSystem.GetChamberVentValve().IsInError())
                 stateText = "Error";
             else
                 stateText = "Unknown";
@@ -186,11 +188,11 @@ namespace SiemensCommunicatinLibTester
         private void UpdateTMPVentValveState()
         {
             string stateText;
-            if (client.GetDevices().GetVacuumSystem().GetTMPVentValve().IsOpen())
+            if (vacuumSystem.GetTMPVentValve().IsOpen())
                 stateText = "Open";
-            else if (client.GetDevices().GetVacuumSystem().GetTMPVentValve().IsClosed())
+            else if (vacuumSystem.GetTMPVentValve().IsClosed())
                 stateText = "Closed";
-            else if (client.GetDevices().GetVacuumSystem().GetTMPVentValve().IsInError())
+            else if (vacuumSystem.GetTMPVentValve().IsInError())
                 stateText = "Error";
             else
                 stateText = "Unknown";
@@ -199,41 +201,45 @@ namespace SiemensCommunicatinLibTester
 
         private void UpdateChamberVacuumReading()
         {
-            if (client.GetDevices().GetVacuumSystem().GetChamberVacuumGauge().IsInError())
+            if (vacuumSystem.GetChamberVacuumGauge().IsInError())
                 ChamberGaugeState.Text = "Error";
+            else if (vacuumSystem.GetChamberVacuumGauge().isInvalid())
+                ChamberGaugeState.Text = "Invalid";
             else
                 ChamberGaugeState.Text = "Normal";
-            ChamberGaugeReading.Text = client.GetDevices().GetVacuumSystem().GetChamberVacuumGauge().GetReadingInPa().ToString() + "Pa";
+            ChamberGaugeReading.Text = vacuumSystem.GetChamberVacuumGauge().GetReadingInPa().ToString() + "Pa";
         }
 
-        private void UpdatePneumaticVacuumReading()
+        private void UpdatePiraniVacuumReading()
         {
-            if (client.GetDevices().GetVacuumSystem().GetPneumaticVacuumGauge().IsInError())
-                PneumaticGaugeState.Text = "Error";
+            if (vacuumSystem.GetPiraniVacuumGauge().IsInError())
+                PiraniGaugeState.Text = "Error";
+            else if (vacuumSystem.GetPiraniVacuumGauge().isInvalid())
+                PiraniGaugeState.Text = "Invalid";
             else
-                PneumaticGaugeState.Text = "Normal";
-            PneumaticGaugeReading.Text = client.GetDevices().GetVacuumSystem().GetPneumaticVacuumGauge().GetReadingInPa().ToString() + "Pa";
+                PiraniGaugeState.Text = "Normal";
+            PneumaticGaugeReading.Text = vacuumSystem.GetPiraniVacuumGauge().GetReadingInPa().ToString() + "Pa";
         }
 
         private void UpdateRotaryPumpState()
         {
-            if (client.GetDevices().GetVacuumSystem().GetRotaryPump().IsOn())
+            if (vacuumSystem.GetRotaryPump().IsOn())
                 RotaryPumpState.Text = "On";
-            else if (client.GetDevices().GetVacuumSystem().GetRotaryPump().IsOff())
+            else if (vacuumSystem.GetRotaryPump().IsOff())
                 RotaryPumpState.Text = "Off";
             else
-                RotaryPumpState.Text = "Unknown";
+                RotaryPumpState.Text = "Error";
         }
 
         private void UpdateDoorState()
         {
-            if (client.GetDevices().GetVacuumSystem().GetDoor().IsDoorOpened())
+            if (vacuumSystem.GetDoor().IsDoorOpened())
                 DoorOpenState.Text = "Opened";
-            else if (client.GetDevices().GetVacuumSystem().GetDoor().IsDoorClosed())
+            else if (vacuumSystem.GetDoor().IsDoorClosed())
                 DoorOpenState.Text = "Closed";
             else
                 DoorOpenState.Text = "Unknown";
-            if (client.GetDevices().GetVacuumSystem().GetDoor().IsDoorLocked())
+            if (vacuumSystem.GetDoor().IsDoorLocked())
                 DoorLockState.Text = "Locked";
             else
                 DoorLockState.Text = "Unlocked";
@@ -241,10 +247,10 @@ namespace SiemensCommunicatinLibTester
 
         private void updateVacuumSwitchState()
         {
-            if (client.GetDevices().GetVacuumSystem().GetVacuumSwitch().IsOn())
-                VacuumSwitchState.Text = "In Vacuum";
+            if (vacuumSystem.GetVacuumSwitch().IsOn())
+                VacuumSwitchState.Text = "Not in Vacuum";
             else
-                VacuumSwitchState.Text = "Not in vacuum";
+                VacuumSwitchState.Text = "In vacuum";
         }
     }
 }
