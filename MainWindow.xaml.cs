@@ -22,8 +22,8 @@ namespace SiemensCommunicatinLibTester
     /// </summary>
     public partial class MainWindow : Window
     {
-        //public S1200Client client = new S1200Client(); 
-        public S1200ClientStud client = new S1200ClientStud(); 
+        public S1200Client client = new S1200Client(); 
+        //public S1200ClientStud client = new S1200ClientStud(); 
         public MainWindow()
         {
             InitializeComponent();
@@ -59,6 +59,38 @@ namespace SiemensCommunicatinLibTester
         {
             if (client.IsConnected())
                 client.Disconnect();
+        }
+
+        private void StartHighVacuumFlow(object sender, RoutedEventArgs e)
+        {
+            if (client.IsConnected())
+            {
+                client.GetProcesses().GetHighVacuumFlow().StartFlow();
+            }
+        }
+
+        private void StopHighVacuumFlow(object sender, RoutedEventArgs e)
+        {
+            if (client.IsConnected())
+            {
+                client.GetProcesses().GetHighVacuumFlow().StopFlow();
+            }
+        }
+
+        private void StartLowVacuumFlow(object sender, RoutedEventArgs e)
+        {
+            if (client.IsConnected())
+            {
+                client.GetProcesses().GetLowVacuumFlow().StartFlow();
+            }
+        }
+
+        private void StopLowVacuumFlow(object sender, RoutedEventArgs e)
+        {
+            if (client.IsConnected())
+            {
+                client.GetProcesses().GetLowVacuumFlow().StopFlow();
+            }
         }
     }
 }

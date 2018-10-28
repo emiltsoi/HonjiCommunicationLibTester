@@ -8,16 +8,25 @@
         Title="S1200 PLC Tester" Height="800" Width="800" Background="#FF4D6D8D"
         Closing="Window_Closing">
     <TabControl Margin="0,0,-204,-174">
-        <TabItem Header="Connection">
+        <TabItem Header="Main">
             <Grid Margin="0,0,2,0">
                 <Button x:Name="ButtonConnect" Content="Connect" HorizontalAlignment="Left" Margin="168,33,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-                <TextBox x:Name="TextBoxIPAddress" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="192.168.0.1" VerticalAlignment="Top" Width="120" Margin="31,30,0,0"/>
+                <TextBox x:Name="TextBoxIPAddress" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="192.168.0.2" VerticalAlignment="Top" Width="120" Margin="31,30,0,0"/>
                 <Button x:Name="ButtonDisconnect" Content="Disconnect" HorizontalAlignment="Left" Margin="262,33,0,0" VerticalAlignment="Top" Width="75" Click="ButtonDisconnect_Click"/>
                 <TextBox x:Name="TextBoxResults" HorizontalAlignment="Left" Height="23" Margin="31,84,0,0" TextWrapping="Wrap" Text="Results" VerticalAlignment="Top" Width="306" IsReadOnly="True" IsUndoEnabled="False" TextOptions.TextFormattingMode="Display"/>
+                <Button Content="Start" HorizontalAlignment="Left" Margin="31,155,0,0" VerticalAlignment="Top" Width="75" Click="StartHighVacuumFlow"/>
+                <Button Content="Stop" HorizontalAlignment="Left" Margin="132,155,0,0" VerticalAlignment="Top" Width="75" Click="StopHighVacuumFlow"/>
+                <Button Content="Start" HorizontalAlignment="Left" Margin="31,230,0,0" VerticalAlignment="Top" Width="75" Click="StartLowVacuumFlow"/>
+                <Button Content="Stop" HorizontalAlignment="Left" Margin="132,230,0,0" VerticalAlignment="Top" Width="75" Click="StopLowVacuumFlow"/>
+                <Label Content="High Vacuum Flow" HorizontalAlignment="Left" Margin="31,114,0,0" VerticalAlignment="Top" Width="116"/>
+                <Label Content="Low Vacuum Flow" HorizontalAlignment="Left" Margin="31,190,0,0" VerticalAlignment="Top" Width="116"/>
             </Grid>
         </TabItem>
         <TabItem Header="Vacuum Manual Control">
             <local:VacuumManualControl></local:VacuumManualControl>
+        </TabItem>
+        <TabItem Header="Carousel Manual Control">
+            <local:CarouselManualControl></local:CarouselManualControl>
         </TabItem>
     </TabControl>
 
