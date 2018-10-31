@@ -22,8 +22,8 @@ namespace SiemensCommunicatinLibTester
     /// </summary>
     public partial class MainWindow : Window
     {
-        public S1200Client client = new S1200Client(); 
-        //public S1200ClientStud client = new S1200ClientStud(); 
+        //public S1200Client client = new S1200Client(); 
+        public S1200ClientStud client = new S1200ClientStud(); 
         public MainWindow()
         {
             InitializeComponent();
