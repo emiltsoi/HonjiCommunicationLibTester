@@ -28,6 +28,9 @@
         <TabItem Header="Carousel Manual Control">
             <local:CarouselManualControl></local:CarouselManualControl>
         </TabItem>
+        <TabItem Header="Cooling Manual Control">
+            <local:Utility></local:Utility>
+        </TabItem>
     </TabControl>
 
 </Window>

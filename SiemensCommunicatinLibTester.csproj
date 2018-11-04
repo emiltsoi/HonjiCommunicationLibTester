@@ -50,9 +50,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="HonjiS1200CommLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="HonjiS1200CommLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ad1ca1edf954d93e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>reference\HonjiS1200CommLib.dll</HintPath>
+      <HintPath>..\..\Documents\Work\SiemensCommunicatinLibTester\reference\HonjiS1200CommLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -77,10 +77,18 @@
     <Compile Include="CarouselManualControl.xaml.cs">
       <DependentUpon>CarouselManualControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DisplayUpdateHelper.cs" />
+    <Compile Include="Utility.xaml.cs">
+      <DependentUpon>Utility.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VacuumManualControl.xaml.cs">
       <DependentUpon>VacuumManualControl.xaml</DependentUpon>
     </Compile>
     <Page Include="CarouselManualControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Utility.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
