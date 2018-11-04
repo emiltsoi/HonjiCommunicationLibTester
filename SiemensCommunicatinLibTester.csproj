@@ -77,6 +77,9 @@
       <DependentUpon>CarouselManualControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="DisplayUpdateHelper.cs" />
+    <Compile Include="GasControl.xaml.cs">
+      <DependentUpon>GasControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utility.xaml.cs">
       <DependentUpon>Utility.xaml</DependentUpon>
     </Compile>
@@ -84,6 +87,10 @@
       <DependentUpon>VacuumManualControl.xaml</DependentUpon>
     </Compile>
     <Page Include="CarouselManualControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GasControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -31,6 +31,9 @@
         <TabItem Header="Cooling Manual Control">
             <local:Utility></local:Utility>
         </TabItem>
+        <TabItem Header="Gas Control">
+            <local:GasControl></local:GasControl>
+        </TabItem>
     </TabControl>
 
 </Window>
