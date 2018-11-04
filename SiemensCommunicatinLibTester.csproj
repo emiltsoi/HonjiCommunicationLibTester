@@ -50,9 +50,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="HonjiS1200CommLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ad1ca1edf954d93e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Documents\Work\SiemensCommunicatinLibTester\reference\HonjiS1200CommLib.dll</HintPath>
+    <Reference Include="HonjiS1200CommLib">
+      <HintPath>reference\HonjiS1200CommLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
