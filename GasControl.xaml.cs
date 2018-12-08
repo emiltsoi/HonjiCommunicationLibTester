@@ -41,7 +41,7 @@ namespace SiemensCommunicatinLibTester
         {
             if (client.IsConnected())
             {
-                DisplayUpdateHelper.UpdateMFCState(gasControlSystem.GetMFCHydrogen(), MFCH2FlowState, MFCH2ValveOpenState, MFCH2OnState);
+                DisplayUpdateHelper.UpdateMFCState(gasControlSystem.GetMFCAcetylene(), MFCH2FlowState, MFCH2ValveOpenState, MFCH2OnState);
                 DisplayUpdateHelper.UpdateMFCState(gasControlSystem.GetMFCNitrogen(), MFCN2FlowState, MFCN2ValveOpenState, MFCN2OnState);
                 DisplayUpdateHelper.UpdateMFCState(gasControlSystem.GetMFCArgon(), MFCArFlowState, MFCArValveOpenState, MFCArOnState);
             }

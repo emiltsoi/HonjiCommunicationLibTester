@@ -23,7 +23,7 @@ namespace SiemensCommunicatinLibTester
     public partial class MainWindow : Window
     {
         public S1200Client client = new S1200Client();
-        //public S1200ClientStud client = new S1200ClientStud(); 
+        //public S1200ClientStud client = new S1200ClientStud();
         public MainWindow()
         {
             InitializeComponent();
@@ -51,6 +51,7 @@ namespace SiemensCommunicatinLibTester
             if (client.IsConnected())
             {
                 client.Synchronize();
+                TextBoxDateTime.Text = client.GetPLCDateTime().ToLongDateString() + client.GetPLCDateTime().ToLongTimeString();
             }
             CommandManager.InvalidateRequerySuggested();
         }
@@ -90,23 +91,6 @@ namespace SiemensCommunicatinLibTester
             if (client.IsConnected())
             {
                 client.GetProcesses().GetLowVacuumFlow().StopFlow();
-            }
-        }
-
-
-        private void ForceHeaterOn(object sender, RoutedEventArgs e)
-        {
-            if (client.IsConnected())
-            {
-                client.ForceHeaterContactOn();
-            }
-        }
-
-        private void ForceHeaterOff(object sender, RoutedEventArgs e)
-        {
-            if (client.IsConnected())
-            {
-                client.ForceHeaterContactOff();
             }
         }
     }

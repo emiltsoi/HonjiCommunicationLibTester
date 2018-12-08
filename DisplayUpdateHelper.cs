@@ -28,7 +28,6 @@ namespace SiemensCommunicatinLibTester
         {
             reading.Text = mfc.GetFlowReading().ToString() + "sccm";
             valveOpen.Text = mfc.IsShutoffValveOpen() ? "Open" : "Close";
-            mfcOn.Text = mfc.IsMFCOn() ? "On" : "Off";
         }
     }
 }
