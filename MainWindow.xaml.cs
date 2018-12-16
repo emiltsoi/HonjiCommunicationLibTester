@@ -24,12 +24,13 @@ namespace SiemensCommunicatinLibTester
     {
         public S1200Client client = new S1200Client();
         //public S1200ClientStud client = new S1200ClientStud();
+        public TimeSpan refreshRateTimeSpan = new TimeSpan(0, 0, 0, 0, 10);
         public MainWindow()
         {
             InitializeComponent();
             DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
             dispatcherTimer.Tick += new EventHandler(PlcSync);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            dispatcherTimer.Interval = refreshRateTimeSpan;
             dispatcherTimer.Start();
         }
 
@@ -50,7 +51,8 @@ namespace SiemensCommunicatinLibTester
         {
             if (client.IsConnected())
             {
-                client.Synchronize();
+                var result = client.Synchronize();
+                TextBoxResults.Text = client.GetErrorText(result);
                 TextBoxDateTime.Text = client.GetPLCDateTime().ToLongDateString() + client.GetPLCDateTime().ToLongTimeString();
             }
             CommandManager.InvalidateRequerySuggested();

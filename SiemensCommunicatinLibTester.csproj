@@ -77,6 +77,9 @@
       <DependentUpon>CarouselManualControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="DisplayUpdateHelper.cs" />
+    <Compile Include="RecipeTest.xaml.cs">
+      <DependentUpon>RecipeTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GasControl.xaml.cs">
       <DependentUpon>GasControl.xaml</DependentUpon>
     </Compile>
@@ -89,6 +92,10 @@
     <Page Include="CarouselManualControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RecipeTest.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="GasControl.xaml">
       <SubType>Designer</SubType>

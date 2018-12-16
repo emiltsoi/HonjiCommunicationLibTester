@@ -35,6 +35,9 @@
         <TabItem Header="Gas Control">
             <local:GasControl></local:GasControl>
         </TabItem>
+        <TabItem Header="Recipe Test">
+            <local:RecipeTest></local:RecipeTest>
+        </TabItem>
     </TabControl>
 
 </Window>

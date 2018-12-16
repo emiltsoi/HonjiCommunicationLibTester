@@ -33,7 +33,7 @@ namespace SiemensCommunicatinLibTester
             gasControlSystem = client.GetDevices().GetGasControlSystem();
             DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
             dispatcherTimer.Tick += new EventHandler(UpdateDisplay);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            dispatcherTimer.Interval = myWin.refreshRateTimeSpan;
             dispatcherTimer.Start();
         }
 
