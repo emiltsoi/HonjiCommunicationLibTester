@@ -108,5 +108,25 @@ namespace SiemensCommunicatinLibTester
             else
                 CompressedAirState.Text = "OK";
         }
+
+        private void ArcSourcesOn(object sender, RoutedEventArgs e)
+        {
+            client.GetDevices().GetPowerSystem().GetArcSource1().ForceCurrentInAmp(50.0f);
+            client.GetDevices().GetPowerSystem().GetArcSource2().ForceCurrentInAmp(60.0f);
+            client.GetDevices().GetPowerSystem().GetArcSource3().ForceCurrentInAmp(70.0f);
+            client.GetDevices().GetPowerSystem().GetArcSource4().ForceCurrentInAmp(80.0f);
+            client.GetDevices().GetPowerSystem().GetArcSource5().ForceCurrentInAmp(90.0f);
+            client.GetDevices().GetPowerSystem().GetArcSource6().ForceCurrentInAmp(100.0f);
+        }
+
+        private void ArcSourcesOff(object sender, RoutedEventArgs e)
+        {
+            client.GetDevices().GetPowerSystem().GetArcSource1().ClearForcedCurrent();
+            client.GetDevices().GetPowerSystem().GetArcSource2().ClearForcedCurrent();
+            client.GetDevices().GetPowerSystem().GetArcSource3().ClearForcedCurrent();
+            client.GetDevices().GetPowerSystem().GetArcSource4().ClearForcedCurrent();
+            client.GetDevices().GetPowerSystem().GetArcSource5().ClearForcedCurrent();
+            client.GetDevices().GetPowerSystem().GetArcSource6().ClearForcedCurrent();
+        }
     }
 }

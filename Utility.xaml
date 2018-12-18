@@ -23,6 +23,8 @@
         <Label Content="Water Flow Arc 456" HorizontalAlignment="Left" Margin="20,119,0,0" VerticalAlignment="Top" Width="130"/>
         <TextBox x:Name="CompressedAirState" HorizontalAlignment="Left" Height="23" Margin="445,154,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="120"/>
         <Label Content="Compressed Air Inlet" HorizontalAlignment="Left" Margin="20,150,0,0" VerticalAlignment="Top" Width="130"/>
+        <Button Content="Force ARC sources" HorizontalAlignment="Left" Margin="445,210,0,0" VerticalAlignment="Top" Width="120" Click="ArcSourcesOn"/>
+        <Button Content="Clear ARC sources" HorizontalAlignment="Left" Margin="590,210,0,0" VerticalAlignment="Top" Width="120" Click="ArcSourcesOff"/>
 
     </Grid>
 </UserControl>
