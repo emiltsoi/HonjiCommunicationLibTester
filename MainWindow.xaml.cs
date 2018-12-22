@@ -24,7 +24,9 @@ namespace SiemensCommunicatinLibTester
     {
         public S1200Client client = new S1200Client();
         //public S1200ClientStud client = new S1200ClientStud();
-        public TimeSpan refreshRateTimeSpan = new TimeSpan(0, 0, 0, 0, 10);
+        //public S1200ClientReadOnly client = new S1200ClientReadOnly();
+
+        public TimeSpan refreshRateTimeSpan = new TimeSpan(0, 0, 0, 1, 0);
         public MainWindow()
         {
             InitializeComponent();
@@ -38,7 +40,7 @@ namespace SiemensCommunicatinLibTester
         {
             
             var result = client.ConnectToPLC(TextBoxIPAddress.GetLineText(0));
-            TextBoxResults.Text = client.GetErrorText(result);
+            //TextBoxResults.Text = client.GetPLCCommunicationErrorText(result);
         }
 
         private void ButtonDisconnect_Click(object sender, RoutedEventArgs e)
@@ -51,7 +53,7 @@ namespace SiemensCommunicatinLibTester
         {
             if (client.IsConnected())
             {
-                var result = client.Synchronize();
+                var result = client.GetLastErrorCode();
                 TextBoxResults.Text = client.GetErrorText(result);
                 TextBoxDateTime.Text = client.GetPLCDateTime().ToLongDateString() + client.GetPLCDateTime().ToLongTimeString();
             }

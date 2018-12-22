@@ -43,13 +43,17 @@ namespace SiemensCommunicatinLibTester
                     if (recipeControl.GetRunningProcessStepNumber() == 1)
                         StartHeatingStep2();
                     else if (recipeControl.GetRunningProcessStepNumber() == 2)
-                        StartPlasmaStep1();
+                        StartHeatingStep3();
+                    else if (recipeControl.GetRunningProcessStepNumber() == 3)
+                        StartHeatingStep2();
                 }
                 else if (recipeControl.GetPlasmaProcess().IsCompleted() && recipeControl.GetRunningProcessType() == ProcessType.Plasma)
                 {
                     if (recipeControl.GetRunningProcessStepNumber() == 1)
                         StartPlasmaStep2();
                     else if (recipeControl.GetRunningProcessStepNumber() == 2)
+                        StartPlasmaStep3();
+                    else if (recipeControl.GetRunningProcessStepNumber() == 3)
                         StartSputteringStep1();
                 }
                 else if (recipeControl.GetSputteringProcess().IsCompleted() && recipeControl.GetRunningProcessType() == ProcessType.Sputtering)
@@ -68,61 +72,78 @@ namespace SiemensCommunicatinLibTester
                     else if (recipeControl.GetRunningProcessStepNumber() == 3)
                         recipeControl.StopAllRecipeProcesses();
                 }
+
+                bool heatingRun = recipeControl.GetHeatingProcess().IsRunning();
+                bool plasmaRun = recipeControl.GetPlasmaProcess().IsRunning();
+                bool sputterRun = recipeControl.GetSputteringProcess().IsRunning();
+                bool coatRun = recipeControl.GetCoatingProcess().IsRunning();
             }
             CommandManager.InvalidateRequerySuggested();
         }
 
         private void StartHeating(object sender, RoutedEventArgs e)
         {
-            recipeControl.GetHeatingProcess().SetParameters(1, 10.0f, 100, 110, 0);
+            recipeControl.GetHeatingProcess().SetParameters(1, 100.0f, 250, 200, 180);
             recipeControl.GetHeatingProcess().StartFlow();
         }
 
         private void StartHeatingStep2()
         {
-            recipeControl.GetHeatingProcess().SetParameters(2, 100.0f, 300, 330, 1);
+            recipeControl.GetHeatingProcess().SetParameters(2, 100.0f, 250, 200, 60);
+            recipeControl.GetHeatingProcess().StartFlow();
+        }
+
+        private void StartHeatingStep3()
+        {
+            recipeControl.GetHeatingProcess().SetParameters(3, 100.0f, 200, 250, 60);
             recipeControl.GetHeatingProcess().StartFlow();
         }
 
         private void StartPlasmaStep1()
         {
-            recipeControl.GetPlasmaProcess().SetParameters(1, 250, 200.0f, 50, 0);
+            recipeControl.GetPlasmaProcess().SetParameters(1, 150, 120.0f, 60, 0);
             recipeControl.GetPlasmaProcess().StartFlow();
         }
 
         private void StartPlasmaStep2()
         {
-            recipeControl.GetPlasmaProcess().SetParameters(2, 500, 100.0f, 80, 1);
+            recipeControl.GetPlasmaProcess().SetParameters(2, 150, 120.0F, 150, 180);
+            recipeControl.GetPlasmaProcess().StartFlow();
+        }
+
+        private void StartPlasmaStep3()
+        {
+            recipeControl.GetPlasmaProcess().SetParameters(3, 150, 120.0F, 180, 120);
             recipeControl.GetPlasmaProcess().StartFlow();
         }
 
         private void StartSputteringStep1()
         {
-            recipeControl.GetSputteringProcess().SetParameters(1, 300, 400.0f, 65, 60, 50, 40, 30, 20, 10, 40);
+            recipeControl.GetSputteringProcess().SetParameters(1, 180, 50.0f, 60, 0, 0, 0, 0, 0, 0, 0);
             recipeControl.GetSputteringProcess().StartFlow();
         }
 
         private void StartSputteringStep2()
         {
-            recipeControl.GetSputteringProcess().SetParameters(2, 600, 300.0f, 25, 10, 20, 30, 40, 50, 60, 1);
+            recipeControl.GetSputteringProcess().SetParameters(2, 180, 50.0f, 120, 0, 0, 0, 0, 0, 0, 60);
             recipeControl.GetSputteringProcess().StartFlow();
         }
 
         private void StartCoatingStep1()
         {
-            recipeControl.GetCoatingProcess().SetParameters(1, 500, 150, 250, 350, 99, 15, 30, 45, 60, 75, 90, 0);
+            recipeControl.GetCoatingProcess().SetParameters(1, 100, 0, 40, 10, 70, 0, 0, 0, 0, 0, 0, 0);
             recipeControl.GetCoatingProcess().StartFlow();
         }
 
         private void StartCoatingStep2()
         {
-            recipeControl.GetCoatingProcess().SetParameters(2, 200, 250, 150, 550, 70, 20, 40, 60, 80, 100, 0, 60);
+            recipeControl.GetCoatingProcess().SetParameters(2, 100, 0, 100, 0, 60, 0, 0, 0, 0, 0, 0, 180);
             recipeControl.GetCoatingProcess().StartFlow();
         }
 
-        private void StartCoatingStep3() // intentionally the same as case 3
+        private void StartCoatingStep3()
         {
-            recipeControl.GetCoatingProcess().SetParameters(3, 200, 250, 150, 550, 70, 20, 40, 60, 80, 100, 0, 60);
+            recipeControl.GetCoatingProcess().SetParameters(3, 100, 0, 100, 0, 60, 0, 60, 0, 0, 0, 0, 10);
             recipeControl.GetCoatingProcess().StartFlow();
         }
 
