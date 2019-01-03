@@ -45,7 +45,7 @@ namespace SiemensCommunicatinLibTester
                     else if (recipeControl.GetRunningProcessStepNumber() == 2)
                         StartHeatingStep3();
                     else if (recipeControl.GetRunningProcessStepNumber() == 3)
-                        StartHeatingStep2();
+                        StartPlasmaStep1();
                 }
                 else if (recipeControl.GetPlasmaProcess().IsCompleted() && recipeControl.GetRunningProcessType() == ProcessType.Plasma)
                 {
@@ -83,19 +83,19 @@ namespace SiemensCommunicatinLibTester
 
         private void StartHeating(object sender, RoutedEventArgs e)
         {
-            recipeControl.GetHeatingProcess().SetParameters(1, 100.0f, 250, 200, 180);
+            recipeControl.GetHeatingProcess().SetParameters(1, 100.0f, 250, 200, 1);
             recipeControl.GetHeatingProcess().StartFlow();
         }
 
         private void StartHeatingStep2()
         {
-            recipeControl.GetHeatingProcess().SetParameters(2, 100.0f, 250, 200, 60);
+            recipeControl.GetHeatingProcess().SetParameters(2, 100.0f, 250, 200, 2);
             recipeControl.GetHeatingProcess().StartFlow();
         }
 
         private void StartHeatingStep3()
         {
-            recipeControl.GetHeatingProcess().SetParameters(3, 100.0f, 200, 250, 60);
+            recipeControl.GetHeatingProcess().SetParameters(3, 100.0f, 200, 250, 3);
             recipeControl.GetHeatingProcess().StartFlow();
         }
 
