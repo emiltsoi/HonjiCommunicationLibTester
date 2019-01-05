@@ -128,5 +128,10 @@ namespace SiemensCommunicatinLibTester
             client.GetDevices().GetPowerSystem().GetArcSource5().ClearForcedCurrent();
             client.GetDevices().GetPowerSystem().GetArcSource6().ClearForcedCurrent();
         }
+
+        private void resetOvervoltageRelays(object sender, RoutedEventArgs e)
+        {
+            client.GetDevices().GetPowerSystem().ResetOverVoltageRelays();
+        }
     }
 }

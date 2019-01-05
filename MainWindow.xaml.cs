@@ -97,5 +97,13 @@ namespace SiemensCommunicatinLibTester
                 client.GetProcesses().GetLowVacuumFlow().StopFlow();
             }
         }
+
+        private void ClearAlarms(object sender, RoutedEventArgs e)
+        {
+            if (client.IsConnected())
+            {
+                client.GetAlarms().AcknowledgeAlarms();
+            }
+        }
     }
 }

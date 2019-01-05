@@ -25,6 +25,7 @@
         <Label Content="Compressed Air Inlet" HorizontalAlignment="Left" Margin="20,150,0,0" VerticalAlignment="Top" Width="130"/>
         <Button Content="Force ARC sources" HorizontalAlignment="Left" Margin="445,210,0,0" VerticalAlignment="Top" Width="120" Click="ArcSourcesOn"/>
         <Button Content="Clear ARC sources" HorizontalAlignment="Left" Margin="590,210,0,0" VerticalAlignment="Top" Width="120" Click="ArcSourcesOff"/>
+        <Button Content="Clear overvoltage relay" HorizontalAlignment="Left" Margin="170,300,0,0" VerticalAlignment="Top" Width="145" Click="resetOvervoltageRelays"/>
 
     </Grid>
 </UserControl>
