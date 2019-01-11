@@ -57,6 +57,10 @@ namespace SiemensCommunicatinLibTester
                 TextBoxResults.Text = client.GetErrorText(result);
                 TextBoxDateTime.Text = client.GetPLCDateTime().ToLongDateString() + client.GetPLCDateTime().ToLongTimeString();
             }
+            else
+            {
+                TextBoxResults.Text = "Not connected";
+            }
             CommandManager.InvalidateRequerySuggested();
         }
 
