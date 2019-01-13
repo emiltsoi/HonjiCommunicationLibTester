@@ -22,9 +22,9 @@ namespace SiemensCommunicatinLibTester
     /// </summary>
     public partial class MainWindow : Window
     {
-        public S1200Client client = new S1200Client();
+        //public S1200Client client = new S1200Client();
         //public S1200ClientStud client = new S1200ClientStud();
-        //public S1200ClientReadOnly client = new S1200ClientReadOnly();
+        public S1200ClientReadOnly client = new S1200ClientReadOnly();
 
         public TimeSpan refreshRateTimeSpan = new TimeSpan(0, 0, 0, 1, 0);
         public MainWindow()
@@ -56,6 +56,18 @@ namespace SiemensCommunicatinLibTester
                 var result = client.GetLastErrorCode();
                 TextBoxResults.Text = client.GetErrorText(result);
                 TextBoxDateTime.Text = client.GetPLCDateTime().ToLongDateString() + client.GetPLCDateTime().ToLongTimeString();
+                var alarms = client.GetAlarms().GetAlarmList();
+                AlarmBlock.Text = "Alarms:";
+                foreach (var alarm in alarms)
+                {
+                    AlarmBlock.Text += ("\r" + alarm);
+                }
+                var warnings = client.GetAlarms().GetWarningList();
+                WarningBlock.Text = "Warnings:";
+                foreach (var warning in warnings)
+                {
+                    WarningBlock.Text += ("\r" + warning);
+                }
             }
             else
             {
