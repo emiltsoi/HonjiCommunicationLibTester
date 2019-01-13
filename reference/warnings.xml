@@ -36,4 +36,8 @@
     <ID>8</ID>
     <Description>Chamber pressure exceeds warning limit during processes</Description>
   </Warning>
+  <Warning>
+    <ID>9</ID>
+    <Description>Bias supply voltage output in error</Description>
+  </Warning>
 </Warnings>
