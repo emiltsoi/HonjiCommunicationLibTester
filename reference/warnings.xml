@@ -40,4 +40,8 @@
     <ID>9</ID>
     <Description>Bias supply voltage output in error</Description>
   </Warning>
+  <Warning>
+    <ID>10</ID>
+    <Description>Bias supply in error</Description>
+  </Warning>
 </Warnings>
