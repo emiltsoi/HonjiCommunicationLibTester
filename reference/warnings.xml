@@ -14,7 +14,7 @@
   </Warning>
   <Warning>
     <ID>3</ID>
-    <Description>Door is not closed for vacuum flows</Description>
+    <Description>Door is not closed in vacuum flows</Description>
   </Warning>
   <Warning>
     <ID>4</ID>
@@ -43,5 +43,17 @@
   <Warning>
     <ID>10</ID>
     <Description>Bias supply in error</Description>
+  </Warning>
+  <Warning>
+    <ID>11</ID>
+    <Description>Main power is off</Description>
+  </Warning>
+  <Warning>
+    <ID>12</ID>
+    <Description>Warm cool water (>30DegC) at TMP</Description>
+  </Warning>
+  <Warning>
+    <ID>13</ID>
+    <Description>Warm super cool water (>30DegC) at arc sources</Description>
   </Warning>
 </Warnings>

@@ -10,7 +10,7 @@
   </Alarm>
   <Alarm>
     <ID>2</ID>
-    <Description>Pressure exceeds error limit in process</Description>
+    <Description>Chamber pressure exceeds error limit in process</Description>
   </Alarm>
   <Alarm>
     <ID>3</ID>
@@ -30,7 +30,7 @@
   </Alarm>
   <Alarm>
     <ID>7</ID>
-    <Description>Flow sensor for main chamber 1-3 in error</Description>
+    <Description>Flow sensor for main chamber, TMP and feedthrough in error</Description>
   </Alarm>
   <Alarm>
     <ID>8</ID>
