@@ -90,7 +90,7 @@
   </Alarm>
   <Alarm>
     <ID>22</ID>
-    <Description>Chamber pressure exceeds error limit during processes</Description>
+    <Description>Chamber pressure exceeds error limit during high vacuum flow</Description>
   </Alarm>
   <Alarm>
     <ID>23</ID>

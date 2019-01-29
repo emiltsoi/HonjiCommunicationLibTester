@@ -119,13 +119,13 @@ namespace SiemensCommunicatinLibTester
 
         private void StartSputteringStep1()
         {
-            recipeControl.GetSputteringProcess().SetParameters(1, 180, 50.0f, 60, 0, 0, 0, 0, 0, 0, 0);
+            recipeControl.GetSputteringProcess().SetParameters(1, 180, 50.0f, 40.0f, 60, 0, 0, 0, 0, 0, 0, 0);
             recipeControl.GetSputteringProcess().StartFlow();
         }
 
         private void StartSputteringStep2()
         {
-            recipeControl.GetSputteringProcess().SetParameters(2, 180, 50.0f, 120, 0, 0, 0, 0, 0, 0, 60);
+            recipeControl.GetSputteringProcess().SetParameters(2, 180, 50.0f, 40.0f, 120, 0, 0, 0, 0, 0, 0, 60);
             recipeControl.GetSputteringProcess().StartFlow();
         }
 
