@@ -56,15 +56,27 @@ namespace SiemensCommunicatinLibTester
                 var result = client.GetLastErrorCode();
                 TextBoxResults.Text = client.GetErrorText(result);
                 TextBoxDateTime.Text = client.GetPLCDateTime().ToLongDateString() + client.GetPLCDateTime().ToLongTimeString();
-                var alarms = client.GetAlarms().GetAlarmList();
+                var alarmStringList = client.GetAlarms().GetAlarmStringList();
+                var alarmList = client.GetAlarms().GetAlarmList();
                 AlarmBlock.Text = "Alarms:";
-                foreach (var alarm in alarms)
+                foreach (var alarm in alarmStringList)
                 {
                     AlarmBlock.Text += ("\r" + alarm);
                 }
-                var warnings = client.GetAlarms().GetWarningList();
+                AlarmBlock.Text += "\r\rAlarmID:";
+                foreach (var alarm in alarmList)
+                {
+                    AlarmBlock.Text += ("\r" + alarm);
+                }
+                var warningStringList = client.GetAlarms().GetWarningStringList();
+                var warningList = client.GetAlarms().GetWarningList();
                 WarningBlock.Text = "Warnings:";
-                foreach (var warning in warnings)
+                foreach (var warning in warningStringList)
+                {
+                    WarningBlock.Text += ("\r" + warning);
+                }
+                WarningBlock.Text += "\r\rWarningID:" ;
+                foreach (var warning in warningList)
                 {
                     WarningBlock.Text += ("\r" + warning);
                 }
