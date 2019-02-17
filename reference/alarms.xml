@@ -141,7 +141,7 @@
     <Description>MFC Nitrogen flow error</Description>
   </Alarm>
   <Alarm>
-    <ID>32</ID>
+    <ID>35</ID>
     <Description>Carousel speed too low</Description>
   </Alarm>
 </Alarms>
