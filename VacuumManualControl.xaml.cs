@@ -81,19 +81,19 @@ namespace SiemensCommunicatinLibTester
             vacuumSystem.GetChamberVentValve().ClearManualOperation();
         }
 
-        private void TMPVentValveOnButton_Click(object sender, RoutedEventArgs e)
+        private void GateValveOnButton_Click(object sender, RoutedEventArgs e)
         {
-            vacuumSystem.GetTMPVentValve().ManuallyOpen();
+            vacuumSystem.GetGateValve().ManuallyOpen();
         }
 
-        private void TMPVentValveOffButton_Click(object sender, RoutedEventArgs e)
+        private void GateValveOffButton_Click(object sender, RoutedEventArgs e)
         {
-            vacuumSystem.GetTMPVentValve().ManuallyClose();
+            vacuumSystem.GetGateValve().ManuallyClose();
         }
 
-        private void TMPVentValveClear_Click(object sender, RoutedEventArgs e)
+        private void GateValveClear_Click(object sender, RoutedEventArgs e)
         {
-            vacuumSystem.GetTMPVentValve().ClearManualOperation();
+            vacuumSystem.GetGateValve().ClearManualOperation();
         }
 
         private void RotaryPumpOnButton_Click(object sender, RoutedEventArgs e)
@@ -133,7 +133,7 @@ namespace SiemensCommunicatinLibTester
                 UpdateBackingAngleValveState();
                 UpdateRoughingAngleValveState();
                 UpdateChamberVentValveState();
-                UpdateTMPVentValveState();
+                UpdateGateValveState();
                 UpdateChamberVacuumReading();
                 UpdatePiraniVacuumReading();
                 UpdateDoorState();
@@ -185,18 +185,18 @@ namespace SiemensCommunicatinLibTester
             ChamberVentValveState.Text = stateText;
         }
 
-        private void UpdateTMPVentValveState()
+        private void UpdateGateValveState()
         {
             string stateText;
-            if (vacuumSystem.GetTMPVentValve().IsOpen())
+            if (vacuumSystem.GetGateValve().IsOpen())
                 stateText = "Open";
-            else if (vacuumSystem.GetTMPVentValve().IsClosed())
+            else if (vacuumSystem.GetGateValve().IsClosed())
                 stateText = "Closed";
-            else if (vacuumSystem.GetTMPVentValve().IsInError())
+            else if (vacuumSystem.GetGateValve().IsInError())
                 stateText = "Error";
             else
                 stateText = "Unknown";
-            TMPVentValveState.Text = stateText;
+            GateValveState.Text = stateText;
         }
 
         private void UpdateChamberVacuumReading()

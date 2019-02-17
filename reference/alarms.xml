@@ -124,4 +124,24 @@
     <ID>30</ID>
     <Description>Arc source 5 voltage low</Description>
   </Alarm>
+  <Alarm>
+    <ID>31</ID>
+    <Description>Bias supply output current too high</Description>
+  </Alarm>
+  <Alarm>
+    <ID>32</ID>
+    <Description>MFC Acelytene flow error</Description>
+  </Alarm>
+  <Alarm>
+    <ID>33</ID>
+    <Description>MFC Argon flow error</Description>
+  </Alarm>
+  <Alarm>
+    <ID>34</ID>
+    <Description>MFC Nitrogen flow error</Description>
+  </Alarm>
+  <Alarm>
+    <ID>32</ID>
+    <Description>Carousel speed too low</Description>
+  </Alarm>
 </Alarms>
