@@ -22,9 +22,9 @@ namespace SiemensCommunicatinLibTester
     /// </summary>
     public partial class MainWindow : Window
     {
-        //public S1200Client client = new S1200Client();
-        public S1200ClientReadOnly client = new S1200ClientReadOnly();
-        //public S1200ClientStud client = new S1200ClientStud();
+        //public S1200Client client = new S1200Client(); // need PLC connection
+        //public S1200ClientReadOnly client = new S1200ClientReadOnly(); // need PLC connection
+        public S1200ClientStud client = new S1200ClientStud(); // for local testing
 
         public TimeSpan refreshRateTimeSpan = new TimeSpan(0, 0, 0, 1, 0);
         public MainWindow()
@@ -46,40 +46,16 @@ namespace SiemensCommunicatinLibTester
         private void ButtonDisconnect_Click(object sender, RoutedEventArgs e)
         {
             var result = client.Disconnect();
-            TextBoxResults.Text = client.GetErrorText(result);
+            TextBoxResults.Text = client.GetCommunicationErrorText(result);
         }
 
         private void PlcSync(object sender, EventArgs e)
         {
             if (client.IsConnected())
             {
-                var result = client.GetLastErrorCode();
-                TextBoxResults.Text = client.GetErrorText(result);
-                TextBoxDateTime.Text = client.GetPLCDateTime().ToLongDateString() + client.GetPLCDateTime().ToLongTimeString();
-                var alarmStringList = client.GetAlarms().GetAlarmStringList();
-                var alarmList = client.GetAlarms().GetAlarmList();
-                AlarmBlock.Text = "Alarms:";
-                foreach (var alarm in alarmStringList)
-                {
-                    AlarmBlock.Text += ("\r" + alarm);
-                }
-                AlarmBlock.Text += "\r\rAlarmID:";
-                foreach (var alarm in alarmList)
-                {
-                    AlarmBlock.Text += ("\r" + alarm);
-                }
-                var warningStringList = client.GetAlarms().GetWarningStringList();
-                var warningList = client.GetAlarms().GetWarningList();
-                WarningBlock.Text = "Warnings:";
-                foreach (var warning in warningStringList)
-                {
-                    WarningBlock.Text += ("\r" + warning);
-                }
-                WarningBlock.Text += "\r\rWarningID:" ;
-                foreach (var warning in warningList)
-                {
-                    WarningBlock.Text += ("\r" + warning);
-                }
+                var result = client.GetLastCommunicationErrorCode();
+                TextBoxResults.Text = client.GetCommunicationErrorText(result);
+                TextBoxDateTime.Text = client.GetPLCDateTime().ToLongDateString() + " " +  client.GetPLCDateTime().ToLongTimeString();
             }
             else
             {
@@ -92,46 +68,6 @@ namespace SiemensCommunicatinLibTester
         {
             if (client.IsConnected())
                 client.Disconnect();
-        }
-
-        private void StartHighVacuumFlow(object sender, RoutedEventArgs e)
-        {
-            if (client.IsConnected())
-            {
-                client.GetProcesses().GetHighVacuumFlow().StartFlow();
-            }
-        }
-
-        private void StopHighVacuumFlow(object sender, RoutedEventArgs e)
-        {
-            if (client.IsConnected())
-            {
-                client.GetProcesses().GetHighVacuumFlow().StopFlow();
-            }
-        }
-
-        private void StartLowVacuumFlow(object sender, RoutedEventArgs e)
-        {
-            if (client.IsConnected())
-            {
-                client.GetProcesses().GetLowVacuumFlow().StartFlow();
-            }
-        }
-
-        private void StopLowVacuumFlow(object sender, RoutedEventArgs e)
-        {
-            if (client.IsConnected())
-            {
-                client.GetProcesses().GetLowVacuumFlow().StopFlow();
-            }
-        }
-
-        private void ClearAlarms(object sender, RoutedEventArgs e)
-        {
-            if (client.IsConnected())
-            {
-                client.GetAlarms().AcknowledgeAlarms();
-            }
         }
     }
 }

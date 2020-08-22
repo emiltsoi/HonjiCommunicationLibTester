@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using HonjiS1200CommLib;
+using HonjiS1200CommLib.Devices.BaseDevices;
+using HonjiS1200CommLib.Devices.VacuumSystemDevices;
 
 namespace SiemensCommunicatinLibTester
 {
     class DisplayUpdateHelper
     {
-        public static void UpdateValveState(IValve valve, TextBox textbox)
+        public static void UpdateValveState(IValve valve, TextBox state)
         {
             string stateText;
             if (valve.IsOpen())
@@ -21,13 +23,24 @@ namespace SiemensCommunicatinLibTester
                 stateText = "Error";
             else
                 stateText = "Unknown";
-            textbox.Text = stateText;
+            state.Text = stateText;
         }
 
-        public static void UpdateMFCState(IMassFlowController mfc, TextBox reading, TextBox valveOpen, TextBox mfcOn)
+        public static void UpdateGaugeReading(IGauge gauge, TextBox state, TextBox reading)
         {
-            reading.Text = mfc.GetFlowReading().ToString() + "sccm";
-            valveOpen.Text = mfc.IsShutoffValveOpen() ? "Open" : "Close";
+            if (gauge.IsInError())
+                state.Text = "Error";
+            else if (gauge.isInvalid())
+                state.Text = "Invalid";
+            else
+                state.Text = "Normal";
+            reading.Text = gauge.GetReadingInPa().ToString() + "Pa";
         }
+
+        //public static void UpdateMFCState(IMassFlowController mfc, TextBox reading, TextBox valveOpen, TextBox mfcOn)
+        //{
+        //    reading.Text = mfc.GetFlowReading().ToString() + "sccm";
+        //    valveOpen.Text = mfc.IsShutoffValveOpen() ? "Open" : "Close";
+        //}
     }
 }

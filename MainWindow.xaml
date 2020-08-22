@@ -14,32 +14,14 @@
                 <TextBox x:Name="TextBoxIPAddress" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="192.168.0.2" VerticalAlignment="Top" Width="120" Margin="31,30,0,0"/>
                 <Button x:Name="ButtonDisconnect" Content="Disconnect" HorizontalAlignment="Left" Margin="262,33,0,0" VerticalAlignment="Top" Width="75" Click="ButtonDisconnect_Click"/>
                 <TextBox x:Name="TextBoxResults" HorizontalAlignment="Left" Height="23" Margin="31,84,0,0" TextWrapping="Wrap" Text="Results" VerticalAlignment="Top" Width="306" IsReadOnly="True" IsUndoEnabled="False" TextOptions.TextFormattingMode="Display"/>
-                <Button Content="Start" HorizontalAlignment="Left" Margin="31,155,0,0" VerticalAlignment="Top" Width="75" Click="StartHighVacuumFlow"/>
-                <Button Content="Stop" HorizontalAlignment="Left" Margin="132,155,0,0" VerticalAlignment="Top" Width="75" Click="StopHighVacuumFlow"/>
-                <Button Content="Start" HorizontalAlignment="Left" Margin="31,230,0,0" VerticalAlignment="Top" Width="75" Click="StartLowVacuumFlow"/>
-                <Button Content="Stop" HorizontalAlignment="Left" Margin="132,230,0,0" VerticalAlignment="Top" Width="75" Click="StopLowVacuumFlow"/>
-                <Label Content="High Vacuum Flow" HorizontalAlignment="Left" Margin="31,114,0,0" VerticalAlignment="Top" Width="116"/>
-                <Label Content="Low Vacuum Flow" HorizontalAlignment="Left" Margin="31,190,0,0" VerticalAlignment="Top" Width="116"/>
                 <TextBox x:Name="TextBoxDateTime" HorizontalAlignment="Left" Height="23" Margin="31,280,0,0" TextWrapping="Wrap" Text="Date Time" VerticalAlignment="Top" Width="286"/>
-                <Button Content="Clear Alarms" HorizontalAlignment="Left" Margin="31,345,0,0" VerticalAlignment="Top" Width="75" Click="ClearAlarms"/>
-                <TextBlock x:Name="AlarmBlock" HorizontalAlignment="Left" Margin="31,425,0,0" TextWrapping="Wrap" Text="Alarms" VerticalAlignment="Top" Height="340" Width="441"/>
-                <TextBlock x:Name="WarningBlock" HorizontalAlignment="Left" Margin="516,425,0,0" TextWrapping="Wrap" Text="Warnings" VerticalAlignment="Top" Height="340" Width="441"/>
             </Grid>
         </TabItem>
         <TabItem Header="Vacuum Manual Control">
             <local:VacuumManualControl></local:VacuumManualControl>
         </TabItem>
-        <TabItem Header="Carousel Manual Control">
-            <local:CarouselManualControl></local:CarouselManualControl>
-        </TabItem>
         <TabItem Header="Utility">
             <local:Utility></local:Utility>
-        </TabItem>
-        <TabItem Header="Gas Control">
-            <local:GasControl></local:GasControl>
-        </TabItem>
-        <TabItem Header="Recipe Test">
-            <local:RecipeTest></local:RecipeTest>
         </TabItem>
     </TabControl>
 

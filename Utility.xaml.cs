@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HonjiS1200CommLib;
 using System.Windows.Threading;
+using HonjiS1200CommLib.Devices.UtilityDevices;
 
 namespace SiemensCommunicatinLibTester
 {
@@ -24,7 +25,7 @@ namespace SiemensCommunicatinLibTester
     public partial class Utility : UserControl
     {
         IS1200Client client;
-        IUtility utility;
+        IUtilityDevices utility;
 
         public Utility()
         {
@@ -42,28 +43,14 @@ namespace SiemensCommunicatinLibTester
         {
             if (client.IsConnected())
             {
-                DisplayUpdateHelper.UpdateValveState(utility.GetCoolWaterValve(), CoolWaterValveState);
                 DisplayUpdateHelper.UpdateValveState(utility.GetColdWaterValve(), ColdWaterValveState);
-                UpdateWaterFlowArc123();
-                UpdateWaterFlowArc456();
-                UpdateCompressedAirInet();
+                UpdateMagnetronWaterFlow();
+                UpdateChamberWaterFlow();
+                UpdateCompressedAirInLet();
+                UpdateMainsOn();
+                UpdateEmergencyButton();
             }
             CommandManager.InvalidateRequerySuggested();
-        }
-
-        private void CoolWaterValveOnButton_Click(object sender, RoutedEventArgs e)
-        {
-            utility.GetCoolWaterValve().ManuallyOpen();
-        }
-
-        private void CoolWaterValveOffButton_Click(object sender, RoutedEventArgs e)
-        {
-            utility.GetCoolWaterValve().ManuallyClose();
-        }
-
-        private void CoolWaterValveClear_Click(object sender, RoutedEventArgs e)
-        {
-            utility.GetCoolWaterValve().ClearManualOperation();
         }
 
         private void ColdWaterValveOnButton_Click(object sender, RoutedEventArgs e)
@@ -81,27 +68,27 @@ namespace SiemensCommunicatinLibTester
             utility.GetColdWaterValve().ClearManualOperation();
         }
 
-        private void UpdateWaterFlowArc123()
+        private void UpdateMagnetronWaterFlow()
         {
-            if (utility.GetWaterFlowSensors().IsArc123WaterFlowInError())
-                WaterFlowArc123State.Text = "Error";
-            else if (utility.GetWaterFlowSensors().IsArc123WaterFlowInWarning())
-                WaterFlowArc123State.Text = "Warning";
+            if (utility.GetWaterFlowSensors().IsMagnetronsWaterFlowInError())
+                MagnetronsFlowState.Text = "Error";
+            else if (utility.GetWaterFlowSensors().IsMagnetronsWaterFlowInWarning())
+                MagnetronsFlowState.Text = "Warning";
             else
-                WaterFlowArc123State.Text = "OK";
+                MagnetronsFlowState.Text = "OK";
         }
 
-        private void UpdateWaterFlowArc456()
+        private void UpdateChamberWaterFlow()
         {
-            if (utility.GetWaterFlowSensors().IsArc456WaterFlowInError())
-                WaterFlowArc456State.Text = "Error";
-            else if (utility.GetWaterFlowSensors().IsArc456WaterFlowInWarning())
-                WaterFlowArc456State.Text = "Warning";
+            if (utility.GetWaterFlowSensors().IsChamberWaterFlowInError())
+                ChamberFlowState.Text = "Error";
+            else if (utility.GetWaterFlowSensors().IsChamberWaterFlowInWarning())
+                ChamberFlowState.Text = "Warning";
             else
-                WaterFlowArc456State.Text = "OK";
+                ChamberFlowState.Text = "OK";
         }
 
-        private void UpdateCompressedAirInet()
+        private void UpdateCompressedAirInLet()
         {
             if (utility.IsCompressedAirInError())
                 CompressedAirState.Text = "Error";
@@ -109,29 +96,20 @@ namespace SiemensCommunicatinLibTester
                 CompressedAirState.Text = "OK";
         }
 
-        private void ArcSourcesOn(object sender, RoutedEventArgs e)
+        private void UpdateMainsOn()
         {
-            client.GetDevices().GetPowerSystem().GetArcSource1().ForceCurrentInAmp(50.0f);
-            client.GetDevices().GetPowerSystem().GetArcSource2().ForceCurrentInAmp(60.0f);
-            client.GetDevices().GetPowerSystem().GetArcSource3().ForceCurrentInAmp(70.0f);
-            client.GetDevices().GetPowerSystem().GetArcSource4().ForceCurrentInAmp(80.0f);
-            client.GetDevices().GetPowerSystem().GetArcSource5().ForceCurrentInAmp(90.0f);
-            client.GetDevices().GetPowerSystem().GetArcSource6().ForceCurrentInAmp(100.0f);
+            if (utility.IsMainPowerOn())
+                MainsOnState.Text = "Mains On";
+            else
+                MainsOnState.Text = "Mains Off";
         }
 
-        private void ArcSourcesOff(object sender, RoutedEventArgs e)
+        private void UpdateEmergencyButton()
         {
-            client.GetDevices().GetPowerSystem().GetArcSource1().ClearForcedCurrent();
-            client.GetDevices().GetPowerSystem().GetArcSource2().ClearForcedCurrent();
-            client.GetDevices().GetPowerSystem().GetArcSource3().ClearForcedCurrent();
-            client.GetDevices().GetPowerSystem().GetArcSource4().ClearForcedCurrent();
-            client.GetDevices().GetPowerSystem().GetArcSource5().ClearForcedCurrent();
-            client.GetDevices().GetPowerSystem().GetArcSource6().ClearForcedCurrent();
-        }
-
-        private void resetOvervoltageRelays(object sender, RoutedEventArgs e)
-        {
-            client.GetDevices().GetPowerSystem().ResetOverVoltageRelays();
+            if (utility.IsEstopClear())
+                EmergecyButtonState.Text = "EStop Clear";
+            else
+                EmergecyButtonState.Text = "EStop Engaged";
         }
     }
 }
