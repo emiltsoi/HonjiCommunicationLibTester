@@ -17,8 +17,17 @@
                 <TextBox x:Name="TextBoxDateTime" HorizontalAlignment="Left" Height="23" Margin="31,280,0,0" TextWrapping="Wrap" Text="Date Time" VerticalAlignment="Top" Width="286"/>
             </Grid>
         </TabItem>
-        <TabItem Header="Vacuum Manual Control">
+        <TabItem Header="Vacuum Control">
             <local:VacuumManualControl></local:VacuumManualControl>
+        </TabItem>
+        <TabItem Header="Temperature Control">
+            <local:TemperatureControl></local:TemperatureControl>
+        </TabItem>
+        <TabItem Header="Gas Control">
+            <local:GasControl></local:GasControl>
+        </TabItem>
+        <TabItem Header="Power Control">
+            <local:PowerSupplyControl></local:PowerSupplyControl>
         </TabItem>
         <TabItem Header="Utility">
             <local:Utility></local:Utility>

@@ -97,6 +97,21 @@ namespace SiemensCommunicatinLibTester
             vacuumSystem.GetSoftPumpValve().ClearManualOperation();
         }
 
+        private void RoughingValveOnButton_Click(object sender, RoutedEventArgs e)
+        {
+            vacuumSystem.GetRoughingValve().ManuallyOpen();
+        }
+
+        private void RoughingValveOffButton_Click(object sender, RoutedEventArgs e)
+        {
+            vacuumSystem.GetRoughingValve().ManuallyClose();
+        }
+
+        private void RoughingValveClear_Click(object sender, RoutedEventArgs e)
+        {
+            vacuumSystem.GetRoughingValve().ClearManualOperation();
+        }
+
         private void RotaryPumpOnButton_Click(object sender, RoutedEventArgs e)
         {
             vacuumSystem.GetRotaryPump().SetManualOn();
@@ -120,8 +135,10 @@ namespace SiemensCommunicatinLibTester
                 DisplayUpdateHelper.UpdateValveState(vacuumSystem.GetChamberVentValve(), ChamberVentValveState);
                 DisplayUpdateHelper.UpdateValveState(vacuumSystem.GetIsolationValve(), IsolationValveState);
                 DisplayUpdateHelper.UpdateValveState(vacuumSystem.GetSoftPumpValve(), SoftPumpValveState);
+                DisplayUpdateHelper.UpdateValveState(vacuumSystem.GetRoughingValve(), RoughingValveState);
                 DisplayUpdateHelper.UpdateGaugeReading(vacuumSystem.GetWideRangeVacuumGauge(), WideRangeGaugeState, WideRangeGaugeReading);
                 DisplayUpdateHelper.UpdateGaugeReading(vacuumSystem.GetPiraniVacuumGauge(), PiraniGaugeState, PiraniGaugeReading);
+                DisplayUpdateHelper.UpdateGaugeReading(vacuumSystem.GetAbsouteGauge(), AbsoluteGaugeState, AbsoluteGaugeReading);
                 UpdateDoorState();
                 UpdateRotaryPumpState();
                 UpdateVacuumSwitchState();
@@ -151,14 +168,18 @@ namespace SiemensCommunicatinLibTester
 
         private void UpdateVacuumSwitchState()
         {
-            if (!vacuumSystem.GetVacuumSwitchLowVacuum().IsOn())
+            if (vacuumSystem.GetVacuumSwitchLowVacuum().IsOn())
                 LowVacuumSwitchState.Text = "In low vacuum";
             else
                 LowVacuumSwitchState.Text = "Not in low vacuum";
-            if (!vacuumSystem.GetVacuumSwitchHighVacuum().IsOn())
+            if (vacuumSystem.GetVacuumSwitchHighVacuum().IsOn())
                 HighVacuumSwitchState.Text = "In high vacuum";
             else
-                HighVacuumSwitchState.Text = "Not in vacuum";
+                HighVacuumSwitchState.Text = "Not in high vacuum";
+            if (!vacuumSystem.GetVacuumSwitchChamber().IsOn())
+                ChamberVacuumSwitchState.Text = "In vacuum";
+            else
+                ChamberVacuumSwitchState.Text = "Not invacuum";
         }
     }
 }

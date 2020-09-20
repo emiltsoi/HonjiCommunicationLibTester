@@ -49,6 +49,7 @@ namespace SiemensCommunicatinLibTester
                 UpdateCompressedAirInLet();
                 UpdateMainsOn();
                 UpdateEmergencyButton();
+                UpdateTemperature();
             }
             CommandManager.InvalidateRequerySuggested();
         }
@@ -111,5 +112,13 @@ namespace SiemensCommunicatinLibTester
             else
                 EmergecyButtonState.Text = "EStop Engaged";
         }
+
+        private void UpdateTemperature()
+        {
+            MagnetronWaterTemperatureState.Text = utility.GetMagnetronWaterTemperatureSensor().GetTemperature().ToString() + " DegC";
+            ChamberWaterTemperatureState.Text = utility.GetChamberWaterTemperatureSensor().GetTemperature().ToString() + " DegC";
+        }
+
+
     }
 }

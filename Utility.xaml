@@ -22,6 +22,10 @@
         <Label Content="Mains On" HorizontalAlignment="Left" Margin="20,180,0,0" VerticalAlignment="Top" Width="130"/>
         <TextBox x:Name="EmergecyButtonState" HorizontalAlignment="Left" Height="23" Margin="445,216,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="120"/>
         <Label Content="Emergency Button" HorizontalAlignment="Left" Margin="20,212,0,0" VerticalAlignment="Top" Width="130"/>
+        <TextBox x:Name="MagnetronWaterTemperatureState" HorizontalAlignment="Left" Height="23" Margin="445,246,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="120" />
+        <Label Content="Magnetron Water Temperature" HorizontalAlignment="Left" Margin="20,242,0,0" VerticalAlignment="Top" Width="175"/>
+        <TextBox x:Name="ChamberWaterTemperatureState" HorizontalAlignment="Left" Height="23" Margin="445,277,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Chamber Water Temperature" HorizontalAlignment="Left" Margin="20,273,0,0" VerticalAlignment="Top" Width="165"/>
 
     </Grid>
 </UserControl>

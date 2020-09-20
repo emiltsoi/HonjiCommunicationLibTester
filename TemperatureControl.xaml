@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="SiemensCommunicatinLibTester.TemperatureControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SiemensCommunicatinLibTester"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White" Margin="0,0,0,-350">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="61*"/>
+            <ColumnDefinition Width="19*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="TemperatureController1ForceButton" Content="Force temperature" HorizontalAlignment="Left" Margin="395,63,0,0" VerticalAlignment="Top" Width="125" Click="TemperatureController1ForceButton_Click"/>
+        <Button x:Name="TemperatureController1ClearButton" Content="Clear" HorizontalAlignment="Left" Margin="550,63,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" Click="TemperatureController1ClearButton_Click"/>
+        <TextBox x:Name="TemperatureController1Setpoint" HorizontalAlignment="Left" Height="23" Margin="254,61,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Temperature Controller 1" HorizontalAlignment="Left" Margin="20,57,0,0" VerticalAlignment="Top" Width="165"/>
+        <TextBox x:Name="ChamberTemperatureState" HorizontalAlignment="Left" Height="23" Margin="445,277,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="120" />
+        <Label Content="Chamber Temperature" HorizontalAlignment="Left" Margin="20,273,0,0" VerticalAlignment="Top" Width="165"/>
+        <Button x:Name="TemperatureController2ForceButton" Content="Force temperature" HorizontalAlignment="Left" Margin="395,94,0,0" VerticalAlignment="Top" Width="125" Click="TemperatureController2ForceButton_Click"/>
+        <Button x:Name="TemperatureController2ClearButton" Content="Clear" HorizontalAlignment="Left" Margin="550,94,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" Click="TemperatureController2ClearButton_Click" />
+        <TextBox x:Name="TemperatureController2Setpoint" HorizontalAlignment="Left" Height="23" Margin="254,92,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Temperature Controller 2" HorizontalAlignment="Left" Margin="20,88,0,0" VerticalAlignment="Top" Width="145"/>
+        <Button x:Name="TemperatureController3ForceButton" Content="Force temperature" HorizontalAlignment="Left" Margin="395,125,0,0" VerticalAlignment="Top" Width="125" Click="TemperatureController3ForceButton_Click"/>
+        <Button x:Name="TemperatureController3ClearButton" Content="Clear" HorizontalAlignment="Left" Margin="550,125,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" Click="TemperatureController3ClearButton_Click"/>
+        <TextBox x:Name="TemperatureController3Setpoint" HorizontalAlignment="Left" Height="23" Margin="254,123,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Temperature Controller 3" HorizontalAlignment="Left" Margin="20,119,0,0" VerticalAlignment="Top" Width="145"/>
+        <Button x:Name="Heater1ContactOnButton" Content="On" HorizontalAlignment="Left" Margin="170,164,0,0" VerticalAlignment="Top" Width="75" Click="Heater1ContactOnButton_Click"/>
+        <Button x:Name="Heater1ContactOffButton" Content="Off" HorizontalAlignment="Left" Margin="260,164,0,0" VerticalAlignment="Top" Width="75" Click="Heater1ContactOffButton_Click"/>
+        <Button x:Name="Heater1ContactClearButton" Content="Clear" HorizontalAlignment="Left" Margin="350,164,0,0" VerticalAlignment="Top" Width="75" Click="Heater1ContactClearButton_Click"/>
+        <TextBox x:Name="Heater1ContactState" HorizontalAlignment="Left" Height="23" Margin="445,165,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Heater 1 Contactor" HorizontalAlignment="Left" Margin="20,161,0,0" VerticalAlignment="Top" Width="130"/>
+        <Button x:Name="Heater2ContactOnButton" Content="On" HorizontalAlignment="Left" Margin="170,195,0,0" VerticalAlignment="Top" Width="75" Click="Heater2ContactOnButton_Click"/>
+        <Button x:Name="Heater2ContactOffButton" Content="Off" HorizontalAlignment="Left" Margin="260,195,0,0" VerticalAlignment="Top" Width="75" Click="Heater2ContactOffButton_Click"/>
+        <Button x:Name="Heater2ContactClearButton" Content="Clear" HorizontalAlignment="Left" Margin="350,195,0,0" VerticalAlignment="Top" Width="75" Click="Heater2ContactClearButton_Click"/>
+        <TextBox x:Name="Heater2ContactState" HorizontalAlignment="Left" Height="23" Margin="445,196,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Heater 2 Contactor" HorizontalAlignment="Left" Margin="20,192,0,0" VerticalAlignment="Top" Width="130"/>
+        <Button x:Name="Heater3ContactOnButton" Content="On" HorizontalAlignment="Left" Margin="170,226,0,0" VerticalAlignment="Top" Width="75" Click="Heater3ContactOnButton_Click"/>
+        <Button x:Name="Heater3ContactOffButton" Content="Off" HorizontalAlignment="Left" Margin="260,226,0,0" VerticalAlignment="Top" Width="75" Click="Heater3ContactOffButton_Click"/>
+        <Button x:Name="Heater3ContactClearButton" Content="Clear" HorizontalAlignment="Left" Margin="350,226,0,0" VerticalAlignment="Top" Width="75" Click="Heater3ContactClearButton_Click"/>
+        <TextBox x:Name="Heater3ContactState" HorizontalAlignment="Left" Height="23" Margin="445,227,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Heater 3 Contactor" HorizontalAlignment="Left" Margin="20,223,0,0" VerticalAlignment="Top" Width="130"/>
+    </Grid>
+</UserControl>

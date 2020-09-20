@@ -74,12 +74,33 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DisplayUpdateHelper.cs" />
+    <Compile Include="GasControl.xaml.cs">
+      <DependentUpon>GasControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PowerSupplyControl.xaml.cs">
+      <DependentUpon>PowerSupplyControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TemperatureControl.xaml.cs">
+      <DependentUpon>TemperatureControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utility.xaml.cs">
       <DependentUpon>Utility.xaml</DependentUpon>
     </Compile>
     <Compile Include="VacuumManualControl.xaml.cs">
       <DependentUpon>VacuumManualControl.xaml</DependentUpon>
     </Compile>
+    <Page Include="GasControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PowerSupplyControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TemperatureControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Utility.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

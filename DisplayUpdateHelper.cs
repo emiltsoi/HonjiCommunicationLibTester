@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using HonjiS1200CommLib;
 using HonjiS1200CommLib.Devices.BaseDevices;
 using HonjiS1200CommLib.Devices.VacuumSystemDevices;
+using HonjiS1200CommLib.Devices.GasControlDevices;
 
 namespace SiemensCommunicatinLibTester
 {
@@ -37,10 +38,18 @@ namespace SiemensCommunicatinLibTester
             reading.Text = gauge.GetReadingInPa().ToString() + "Pa";
         }
 
-        //public static void UpdateMFCState(IMassFlowController mfc, TextBox reading, TextBox valveOpen, TextBox mfcOn)
-        //{
-        //    reading.Text = mfc.GetFlowReading().ToString() + "sccm";
-        //    valveOpen.Text = mfc.IsShutoffValveOpen() ? "Open" : "Close";
-        //}
+        public static void UpdateMFCState(IMassFlowController mfc, TextBox reading, TextBox valveOpen, TextBox mfcOn)
+        {
+            reading.Text = mfc.GetFlowReading().ToString() + "sccm";
+            valveOpen.Text = mfc.IsShutoffValveOpen() ? "Open" : "Close";
+        }
+
+        public static void UpdateSimpleOnOffDeviceState(ISimpleOnOffDevice device, TextBox state)
+        {
+            if (device.IsOn())
+                state.Text = "On";
+            else
+                state.Text = "Off";
+        }
     }
 }
