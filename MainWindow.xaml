@@ -15,6 +15,7 @@
                 <Button x:Name="ButtonDisconnect" Content="Disconnect" HorizontalAlignment="Left" Margin="262,33,0,0" VerticalAlignment="Top" Width="75" Click="ButtonDisconnect_Click"/>
                 <TextBox x:Name="TextBoxResults" HorizontalAlignment="Left" Height="23" Margin="31,84,0,0" TextWrapping="Wrap" Text="Results" VerticalAlignment="Top" Width="306" IsReadOnly="True" IsUndoEnabled="False" TextOptions.TextFormattingMode="Display"/>
                 <TextBox x:Name="TextBoxDateTime" HorizontalAlignment="Left" Height="23" Margin="31,280,0,0" TextWrapping="Wrap" Text="Date Time" VerticalAlignment="Top" Width="286"/>
+                <Button x:Name="ButtonClearAllManualOperation" Content="Clear Manual Operations" HorizontalAlignment="Left" Margin="31,195,0,0" VerticalAlignment="Top" Width="186" Click="ButtonClearAllManualOperation_Click"/>
             </Grid>
         </TabItem>
         <TabItem Header="Vacuum Control">
@@ -31,6 +32,9 @@
         </TabItem>
         <TabItem Header="Utility">
             <local:Utility></local:Utility>
+        </TabItem>
+        <TabItem Header="Motion">
+            <local:MotionControl></local:MotionControl>
         </TabItem>
     </TabControl>
 
