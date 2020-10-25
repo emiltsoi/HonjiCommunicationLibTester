@@ -28,17 +28,16 @@ namespace SiemensCommunicatinLibTester
     /// 
     public class PSUStatus : INotifyPropertyChanged
     {
-        private IAEPowerSupply device;
+        private IAEPowerSupplyBase device;
         public string PSU { get; set; }
-        private string voltageSetpoint, voltageReading, current;
+        private string voltage, current;
         private bool psuConnected, psuError;
-        public string VoltageSetpoint { get { return voltageSetpoint; } set { if (voltageSetpoint != value) { voltageSetpoint = value; NotifyPropertyChanged(); } } }
-        public string VoltageReading { get { return voltageReading; } set { if (voltageReading != value) { voltageReading = value; NotifyPropertyChanged(); } } }
+        public string Voltage { get { return voltage; } set { if (voltage != value) { voltage = value; NotifyPropertyChanged(); } } }
         public string Current { get { return current; } set { if (current != value) { current = value; NotifyPropertyChanged(); } } }
         public bool PSUConnected { get { return psuConnected; } set { if (psuConnected != value) { psuConnected = value; NotifyPropertyChanged(); } } }
         public bool PSUError { get { return psuError; } set { if (psuError != value) { psuError = value; NotifyPropertyChanged(); } } }
 
-        public PSUStatus(IAEPowerSupply device, string psuName)
+        public PSUStatus(IAEPowerSupplyBase device, string psuName)
         {
             this.PSU = psuName;
             this.device = device;
@@ -53,9 +52,8 @@ namespace SiemensCommunicatinLibTester
 
         public void RefreshData()
         {
-            VoltageSetpoint = this.device.GetVoltageSetpointInVolt().ToString();
-            VoltageReading = this.device.GetVoltageReadingInVolt().ToString();
-            Current = this.device.GetCurrentInAmp().ToString();
+            Voltage = this.device.GetVoltageReadingInVolt().ToString();
+            Current = this.device.GetCurrentReadingInAmp().ToString();
             PSUConnected = this.device.IsConnected();
             PSUError = this.device.IsInError();
         }
@@ -123,32 +121,32 @@ namespace SiemensCommunicatinLibTester
 
         private void AE1ForceVoltageButton_Click(object sender, RoutedEventArgs e)
         {
-            powerSystem.GetAEPowerSupply1().ForceManualVoltageInVolt(Convert.ToUInt16(AE1ForcedVoltageValue.Text));
+            powerSystem.GetAEPowerSupply1().ForceManualCurrentInAmp(Convert.ToSingle(AE1ForcedCurrentValue.Text));
         }
 
         private void AE1ClearButton_Click(object sender, RoutedEventArgs e)
         {
-            powerSystem.GetAEPowerSupply1().ClearForcedVoltage();
+            powerSystem.GetAEPowerSupply1().ClearForcedSetpoint();
         }
 
         private void AE2ForceVoltageButton_Click(object sender, RoutedEventArgs e)
         {
-            powerSystem.GetAEPowerSupply2().ForceManualVoltageInVolt(Convert.ToUInt16(AE2ForcedVoltageValue.Text));
+            powerSystem.GetAEPowerSupply2().ForceManualCurrentInAmp(Convert.ToSingle(AE2ForcedCurrentValue.Text));
         }
 
         private void AE2ClearButton_Click(object sender, RoutedEventArgs e)
         {
-            powerSystem.GetAEPowerSupply2().ClearForcedVoltage();
+            powerSystem.GetAEPowerSupply2().ClearForcedSetpoint();
         }
 
         private void AE3ForceVoltageButton_Click(object sender, RoutedEventArgs e)
         {
-            powerSystem.GetAEPowerSupply3().ForceManualVoltageInVolt(Convert.ToUInt16(AE3ForcedVoltageValue.Text));
+            powerSystem.GetAEPowerSupply3().ForceManualCurrentInAmp(Convert.ToSingle(AE3ForcedCurrentValue.Text));
         }
 
         private void AE3ClearButton_Click(object sender, RoutedEventArgs e)
         {
-            powerSystem.GetAEPowerSupply3().ClearForcedVoltage();
+            powerSystem.GetAEPowerSupply3().ClearForcedSetpoint();
         }
 
         private void BiasForceVoltageButton_Click(object sender, RoutedEventArgs e)
@@ -158,7 +156,7 @@ namespace SiemensCommunicatinLibTester
 
         private void BiasClearButton_Click(object sender, RoutedEventArgs e)
         {
-            powerSystem.GetBiasPowerSupply().ClearForcedVoltage();
+            powerSystem.GetBiasPowerSupply().ClearForcedSetpoint();
         }
 
         private void populatePSUStatus()
