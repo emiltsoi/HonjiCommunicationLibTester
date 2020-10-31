@@ -42,8 +42,8 @@ namespace SiemensCommunicatinLibTester
         {
             if (client.IsConnected())
             {
-                var speed = motionSystem.GetVSD().GetMotorSpeedinRPM();
-                CurrentSpeedTextBox.Text = speed.ToString();
+                CurrentSpeedTextBox.Text = motionSystem.GetVSD().GetMotorSpeedinRPM().ToString();
+                CurrentSpeedSetpointTextBox.Text = motionSystem.GetVSD().GetMotorSpeedSetpoint().ToString();
                 if (motionSystem.GetVSD().IsOn())
                     PumpStateTextBox.Text = "ON";
                 else if (motionSystem.GetVSD().IsOff())
