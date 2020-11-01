@@ -119,34 +119,64 @@ namespace SiemensCommunicatinLibTester
             powerSystem.GetBiasSupplyContactor().ResetManualOperation();
         }
 
-        private void AE1ForceVoltageButton_Click(object sender, RoutedEventArgs e)
+        private void AE1AForceVoltageButton_Click(object sender, RoutedEventArgs e)
         {
-            powerSystem.GetAEPowerSupply1().ForceManualCurrentInAmp(Convert.ToSingle(AE1ForcedCurrentValue.Text));
+            powerSystem.GetAEPowerSupply1A().ForceManualCurrentInAmp(Convert.ToSingle(AE1AForcedCurrentValue.Text));
         }
 
-        private void AE1ClearButton_Click(object sender, RoutedEventArgs e)
+        private void AE1AClearButton_Click(object sender, RoutedEventArgs e)
         {
-            powerSystem.GetAEPowerSupply1().ClearForcedSetpoint();
+            powerSystem.GetAEPowerSupply1A().ClearForcedSetpoint();
         }
 
-        private void AE2ForceVoltageButton_Click(object sender, RoutedEventArgs e)
+        private void AE2AForceVoltageButton_Click(object sender, RoutedEventArgs e)
         {
-            powerSystem.GetAEPowerSupply2().ForceManualCurrentInAmp(Convert.ToSingle(AE2ForcedCurrentValue.Text));
+            powerSystem.GetAEPowerSupply2A().ForceManualCurrentInAmp(Convert.ToSingle(AE2AForcedCurrentValue.Text));
         }
 
-        private void AE2ClearButton_Click(object sender, RoutedEventArgs e)
+        private void AE2AClearButton_Click(object sender, RoutedEventArgs e)
         {
-            powerSystem.GetAEPowerSupply2().ClearForcedSetpoint();
+            powerSystem.GetAEPowerSupply2A().ClearForcedSetpoint();
         }
 
-        private void AE3ForceVoltageButton_Click(object sender, RoutedEventArgs e)
+        private void AE3AForceVoltageButton_Click(object sender, RoutedEventArgs e)
         {
-            powerSystem.GetAEPowerSupply3().ForceManualCurrentInAmp(Convert.ToSingle(AE3ForcedCurrentValue.Text));
+            powerSystem.GetAEPowerSupply3A().ForceManualCurrentInAmp(Convert.ToSingle(AE3AForcedCurrentValue.Text));
         }
 
-        private void AE3ClearButton_Click(object sender, RoutedEventArgs e)
+        private void AE3AClearButton_Click(object sender, RoutedEventArgs e)
         {
-            powerSystem.GetAEPowerSupply3().ClearForcedSetpoint();
+            powerSystem.GetAEPowerSupply3A().ClearForcedSetpoint();
+        }
+
+        private void AE1BForceVoltageButton_Click(object sender, RoutedEventArgs e)
+        {
+            powerSystem.GetAEPowerSupply1B().ForceManualCurrentInAmp(Convert.ToSingle(AE1BForcedCurrentValue.Text));
+        }
+
+        private void AE1BClearButton_Click(object sender, RoutedEventArgs e)
+        {
+            powerSystem.GetAEPowerSupply1B().ClearForcedSetpoint();
+        }
+
+        private void AE2BForceVoltageButton_Click(object sender, RoutedEventArgs e)
+        {
+            powerSystem.GetAEPowerSupply2B().ForceManualCurrentInAmp(Convert.ToSingle(AE2BForcedCurrentValue.Text));
+        }
+
+        private void AE2BClearButton_Click(object sender, RoutedEventArgs e)
+        {
+            powerSystem.GetAEPowerSupply2B().ClearForcedSetpoint();
+        }
+
+        private void AE3BForceVoltageButton_Click(object sender, RoutedEventArgs e)
+        {
+            powerSystem.GetAEPowerSupply3B().ForceManualCurrentInAmp(Convert.ToSingle(AE3BForcedCurrentValue.Text));
+        }
+
+        private void AE3BClearButton_Click(object sender, RoutedEventArgs e)
+        {
+            powerSystem.GetAEPowerSupply3B().ClearForcedSetpoint();
         }
 
         private void BiasForceVoltageButton_Click(object sender, RoutedEventArgs e)
@@ -161,9 +191,12 @@ namespace SiemensCommunicatinLibTester
 
         private void populatePSUStatus()
         {
-            memberData.Add(new PSUStatus(powerSystem.GetAEPowerSupply1(), "AEPSU1"));
-            memberData.Add(new PSUStatus(powerSystem.GetAEPowerSupply2(), "AEPSU2"));
-            memberData.Add(new PSUStatus(powerSystem.GetAEPowerSupply3(), "AEPSU3"));
+            memberData.Add(new PSUStatus(powerSystem.GetAEPowerSupply1A(), "AEPSU1A"));
+            memberData.Add(new PSUStatus(powerSystem.GetAEPowerSupply2A(), "AEPSU2A"));
+            memberData.Add(new PSUStatus(powerSystem.GetAEPowerSupply3A(), "AEPSU3A"));
+            memberData.Add(new PSUStatus(powerSystem.GetAEPowerSupply1B(), "AEPSU1B"));
+            memberData.Add(new PSUStatus(powerSystem.GetAEPowerSupply2B(), "AEPSU2B"));
+            memberData.Add(new PSUStatus(powerSystem.GetAEPowerSupply3B(), "AEPSU3B"));
             memberData.Add(new PSUStatus(powerSystem.GetBiasPowerSupply(), "BiasPSU"));
             dataGrid.DataContext = memberData;
         }

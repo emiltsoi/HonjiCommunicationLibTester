@@ -142,6 +142,7 @@ namespace SiemensCommunicatinLibTester
                 UpdateDoorState();
                 UpdateRotaryPumpState();
                 UpdateVacuumSwitchState();
+                UpdateTMPStatus();
             }
             CommandManager.InvalidateRequerySuggested(); 
         }
@@ -180,6 +181,49 @@ namespace SiemensCommunicatinLibTester
                 ChamberVacuumSwitchState.Text = "In vacuum";
             else
                 ChamberVacuumSwitchState.Text = "Not invacuum";
+        }
+
+        private void TMPSetSpeedButton_Click(object sender, RoutedEventArgs e)
+        {
+            vacuumSystem.GetTMP().SetRotationSpeedInHz(Convert.ToUInt16(TMPManualSpeed.Text));
+        }
+
+        private void TMPStartButton_Click(object sender, RoutedEventArgs e)
+        {
+            vacuumSystem.GetTMP().SetManualStart();
+        }
+
+        private void TMPStopButton_Click(object sender, RoutedEventArgs e)
+        {
+            vacuumSystem.GetTMP().SetManualStop();
+        }
+
+        private void TMPClearButton_Click(object sender, RoutedEventArgs e)
+        {
+            vacuumSystem.GetTMP().ResetManualOperation();
+        }
+
+        private void TMPClearErrorButton_Click(object sender, RoutedEventArgs e)
+        {
+            vacuumSystem.GetTMP().ManualClearError();
+        }
+
+        private void UpdateTMPStatus()
+        {
+            TMPCurrentSpeed.Text = vacuumSystem.GetTMP().GetActualSpeedInHz().ToString() + " Hz";
+            TMPSpeedSetpoint.Text = vacuumSystem.GetTMP().GetSpeedSetpointInHz().ToString() + " Hz";
+            TMPBearingTemperature.Text = vacuumSystem.GetTMP().GetBearingTemperatureInDegreeC().ToString() + " degC";
+            TMPMotorTemperature.Text = vacuumSystem.GetTMP().GetMotorTemperatureInDegreeC().ToString() + " degC";
+            TMPBaseTemperature.Text = vacuumSystem.GetTMP().GetBaseTemperatureInDegreeC().ToString() + " degC";
+            TMPVoltage.Text = vacuumSystem.GetTMP().GetVoltageInVolt().ToString() + " V";
+            TMPCurrent.Text = vacuumSystem.GetTMP().GetCurrentInAmp().ToString() + " A";
+            TMPReady.IsChecked = vacuumSystem.GetTMP().IsReady();
+            TMPWarning.IsChecked = vacuumSystem.GetTMP().HasWarning();
+            TMPError.IsChecked = vacuumSystem.GetTMP().InError();
+            TMPConnected.IsChecked = vacuumSystem.GetTMP().IsConnected();
+            TMPAccelerating.IsChecked = vacuumSystem.GetTMP().IsAccelerating();
+            TMPDecelerating.IsChecked = vacuumSystem.GetTMP().IsDecelerating();
+            TMPRotating.IsChecked = vacuumSystem.GetTMP().IsRotating();
         }
     }
 }

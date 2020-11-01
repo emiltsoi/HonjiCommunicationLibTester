@@ -54,5 +54,33 @@
         <Label Content="Absolute Gauge" HorizontalAlignment="Left" Margin="20,409,0,0" VerticalAlignment="Top" Width="130"/>
         <TextBox x:Name="ChamberVacuumSwitchState" HorizontalAlignment="Left" Height="23" Margin="320,345,0,0" TextWrapping="Wrap" Text="Normal" VerticalAlignment="Top" Width="120"/>
         <Label Content="Vacuum Switch (Chamber)" HorizontalAlignment="Left" Margin="20,341,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button x:Name="TMPStartButton" Content="Start" HorizontalAlignment="Left" Margin="170,495,0,0" VerticalAlignment="Top" Width="75" Click="TMPStartButton_Click"/>
+        <Button x:Name="TMPStopButton" Content="Stop" HorizontalAlignment="Left" Margin="260,495,0,0" VerticalAlignment="Top" Width="75" Click="TMPStopButton_Click"/>
+        <Button x:Name="TMPClearButton" Content="Clear" HorizontalAlignment="Left" Margin="350,495,0,0" VerticalAlignment="Top" Width="75" Click="TMPClearButton_Click"/>
+        <TextBox x:Name="TMPManualSpeed" HorizontalAlignment="Left" Height="23" Margin="170,459,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="TMPSetSpeedButton" Content="Set Speed" HorizontalAlignment="Left" Margin="350,459,0,0" VerticalAlignment="Top" Width="75" Click="TMPSetSpeedButton_Click"/>
+        <TextBox x:Name="TMPCurrentSpeed" HorizontalAlignment="Left" Height="23" Margin="170,532,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <Label Content="Current speed" HorizontalAlignment="Left" Margin="20,529,0,0" VerticalAlignment="Top" Width="130"/>
+        <TextBox x:Name="TMPSpeedSetpoint" HorizontalAlignment="Left" Height="23" Margin="450,532,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <Label Content="Speed Setpoint" HorizontalAlignment="Left" Margin="320,529,0,0" VerticalAlignment="Top" Width="130"/>
+        <CheckBox x:Name="TMPReady" Content="Ready" HorizontalAlignment="Left" Margin="170,654,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="TMPWarning" Content="Warning" HorizontalAlignment="Left" Margin="264,654,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="TMPError" Content="Error" HorizontalAlignment="Left" Margin="354,654,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="TMPAccelerating" Content="Accelerating" HorizontalAlignment="Left" Margin="170,674,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="TMPDecelerating" Content="Decelerating" HorizontalAlignment="Left" Margin="264,674,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="TMPRotating" Content="Rotating" HorizontalAlignment="Left" Margin="354,674,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="TMPConnected" Content="Connected" HorizontalAlignment="Left" Margin="445,654,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TMPBearingTemperature" HorizontalAlignment="Left" Height="23" Margin="170,560,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <Label Content="Bearing Temp" HorizontalAlignment="Left" Margin="20,557,0,0" VerticalAlignment="Top" Width="130"/>
+        <TextBox x:Name="TMPMotorTemperature" HorizontalAlignment="Left" Height="23" Margin="170,592,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <Label Content="Motor Temp" HorizontalAlignment="Left" Margin="20,589,0,0" VerticalAlignment="Top" Width="130"/>
+        <TextBox x:Name="TMPBaseTemperature" HorizontalAlignment="Left" Height="23" Margin="450,560,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <Label Content="BaseTemp" HorizontalAlignment="Left" Margin="320,557,0,0" VerticalAlignment="Top" Width="130"/>
+        <Button x:Name="TMPClearErrorButton" Content="Clear Error" HorizontalAlignment="Left" Margin="445,495,0,0" VerticalAlignment="Top" Width="75" Click="TMPClearErrorButton_Click"/>
+        <TextBox x:Name="TMPVoltage" HorizontalAlignment="Left" Height="23" Margin="170,626,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <Label Content="Voltage" HorizontalAlignment="Left" Margin="20,623,0,0" VerticalAlignment="Top" Width="130"/>
+        <TextBox x:Name="TMPCurrent" HorizontalAlignment="Left" Height="23" Margin="450,626,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <Label Content="Current" HorizontalAlignment="Left" Margin="320,623,0,0" VerticalAlignment="Top" Width="130"/>
+        <GroupBox Header="TMP" HorizontalAlignment="Left" Height="255" VerticalAlignment="Top" Width="570" Margin="20,445,0,0"/>
     </Grid>
 </UserControl>

@@ -7,6 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="White" Margin="0,0,0,-350">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="67*"/>
+        </Grid.RowDefinitions>
         <Button x:Name="AESupplyContactOnButton" Content="On" HorizontalAlignment="Left" Margin="170,65,0,0" VerticalAlignment="Top" Width="75" Click="AESupplyContactOnButton_Click"/>
         <Button x:Name="AESupplyContactOffButton" Content="Off" HorizontalAlignment="Left" Margin="260,65,0,0" VerticalAlignment="Top" Width="75" Click="AESupplyContactOffButton_Click"/>
         <Button x:Name="AESupplyClearButton" Content="Clear" HorizontalAlignment="Left" Margin="350,65,0,0" VerticalAlignment="Top" Width="75" Click="AESupplyContactClearButton_Click"/>
@@ -17,23 +21,23 @@
         <Button x:Name="BiasContactClearButton" Content="Clear" HorizontalAlignment="Left" Margin="350,96,0,0" VerticalAlignment="Top" Width="75" Click="BiasContactClearButton_Click"/>
         <TextBox x:Name="BiasContactState" HorizontalAlignment="Left" Height="23" Margin="445,97,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="120"/>
         <Label Content="Bias Contactor" HorizontalAlignment="Left" Margin="20,93,0,0" VerticalAlignment="Top" Width="130"/>
-        <Button x:Name="AE1ForceCurrentButton" Content="Force Current" HorizontalAlignment="Left" Margin="380,169,0,0" VerticalAlignment="Top" Width="90" Click="AE1ForceVoltageButton_Click"/>
-        <Button x:Name="AE1ClearButton" Content="Clear" HorizontalAlignment="Left" Margin="490,169,0,0" VerticalAlignment="Top" Width="75" Click="AE1ClearButton_Click"/>
-        <TextBox x:Name="AE1ForcedCurrentValue" HorizontalAlignment="Left" Height="23" Margin="170,169,0,0" TextWrapping="Wrap" Text="0.0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="AEPSU1 " HorizontalAlignment="Left" Margin="20,166,0,0" VerticalAlignment="Top" Width="130"/>
-        <Button x:Name="AE2ForceCCurrentButton" Content="Force Current" HorizontalAlignment="Left" Margin="380,199,0,0" VerticalAlignment="Top" Width="90" Click="AE2ForceVoltageButton_Click"/>
-        <Button x:Name="AE2ClearButton" Content="Clear" HorizontalAlignment="Left" Margin="490,199,0,0" VerticalAlignment="Top" Width="75" Click="AE2ClearButton_Click"/>
-        <TextBox x:Name="AE2ForcedCurrentValue" HorizontalAlignment="Left" Height="23" Margin="170,199,0,0" TextWrapping="Wrap" Text="0.0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="AEPSU2 " HorizontalAlignment="Left" Margin="20,196,0,0" VerticalAlignment="Top" Width="130"/>
-        <Button x:Name="AE3ForceCurrentButton" Content="Force Current" HorizontalAlignment="Left" Margin="380,227,0,0" VerticalAlignment="Top" Width="90" Click="AE3ForceVoltageButton_Click"/>
-        <Button x:Name="AE3ClearButton" Content="Clear" HorizontalAlignment="Left" Margin="490,227,0,0" VerticalAlignment="Top" Width="75" Click="AE3ClearButton_Click"/>
-        <TextBox x:Name="AE3ForcedCurrentValue" HorizontalAlignment="Left" Height="23" Margin="170,227,0,0" TextWrapping="Wrap" Text="0.0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="AEPSU3 " HorizontalAlignment="Left" Margin="20,224,0,0" VerticalAlignment="Top" Width="130"/>
-        <Button x:Name="BiasForceVoltageButton" Content="Force Voltage" HorizontalAlignment="Left" Margin="380,256,0,0" VerticalAlignment="Top" Width="90" Click="BiasForceVoltageButton_Click"/>
-        <Button x:Name="BiasClearButton" Content="Clear" HorizontalAlignment="Left" Margin="490,256,0,0" VerticalAlignment="Top" Width="75" Click="BiasClearButton_Click"/>
-        <TextBox x:Name="BiasForcedVoltageValue" HorizontalAlignment="Left" Height="23" Margin="170,256,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="BiasPSU" HorizontalAlignment="Left" Margin="20,253,0,0" VerticalAlignment="Top" Width="130"/>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="355" VerticalAlignment="Top" Width="630" Margin="20,305,0,0" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True">
+        <Button x:Name="AE1AForceCurrentButton" Content="Force Current" HorizontalAlignment="Left" Margin="380,39,0,0" VerticalAlignment="Top" Width="90" Click="AE1AForceVoltageButton_Click" Grid.Row="1"/>
+        <Button x:Name="AE1AClearButton" Content="Clear" HorizontalAlignment="Left" Margin="490,39,0,0" VerticalAlignment="Top" Width="75" Click="AE1AClearButton_Click" Grid.Row="1"/>
+        <TextBox x:Name="AE1AForcedCurrentValue" HorizontalAlignment="Left" Height="23" Margin="170,39,0,0" TextWrapping="Wrap" Text="0.0" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <Label Content="AEPSU1 A" HorizontalAlignment="Left" Margin="20,36,0,0" VerticalAlignment="Top" Width="130" Grid.Row="1"/>
+        <Button x:Name="AE2AForceCCurrentButton" Content="Force Current" HorizontalAlignment="Left" Margin="380,69,0,0" VerticalAlignment="Top" Width="90" Click="AE2AForceVoltageButton_Click" Grid.Row="1"/>
+        <Button x:Name="AE2AClearButton" Content="Clear" HorizontalAlignment="Left" Margin="490,69,0,0" VerticalAlignment="Top" Width="75" Click="AE2AClearButton_Click" Grid.Row="1"/>
+        <TextBox x:Name="AE2AForcedCurrentValue" HorizontalAlignment="Left" Height="23" Margin="170,69,0,0" TextWrapping="Wrap" Text="0.0" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <Label Content="AEPSU2 A" HorizontalAlignment="Left" Margin="20,66,0,0" VerticalAlignment="Top" Width="130" Grid.Row="1"/>
+        <Button x:Name="AE3AForceCurrentButton" Content="Force Current" HorizontalAlignment="Left" Margin="380,97,0,0" VerticalAlignment="Top" Width="90" Click="AE3AForceVoltageButton_Click" Grid.Row="1"/>
+        <Button x:Name="AE3AClearButton" Content="Clear" HorizontalAlignment="Left" Margin="490,97,0,0" VerticalAlignment="Top" Width="75" Click="AE3AClearButton_Click" Grid.Row="1"/>
+        <TextBox x:Name="AE3AForcedCurrentValue" HorizontalAlignment="Left" Height="23" Margin="170,97,0,0" TextWrapping="Wrap" Text="0.0" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <Label Content="AEPSU3 A" HorizontalAlignment="Left" Margin="20,94,0,0" VerticalAlignment="Top" Width="130" Grid.Row="1"/>
+        <Button x:Name="BiasForceVoltageButton" Content="Force Voltage" HorizontalAlignment="Left" Margin="380,266,0,0" VerticalAlignment="Top" Width="90" Click="BiasForceVoltageButton_Click" Grid.Row="1"/>
+        <Button x:Name="BiasClearButton" Content="Clear" HorizontalAlignment="Left" Margin="490,266,0,0" VerticalAlignment="Top" Width="75" Click="BiasClearButton_Click" Grid.Row="1"/>
+        <TextBox x:Name="BiasForcedVoltageValue" HorizontalAlignment="Left" Height="23" Margin="170,266,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <Label Content="BiasPSU" HorizontalAlignment="Left" Margin="20,263,0,0" VerticalAlignment="Top" Width="130" Grid.Row="1"/>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="175" VerticalAlignment="Top" Width="630" Margin="20,315,0,0" ItemsSource="{Binding}" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="PSU" Width="80" Binding="{Binding PSU}"/>
                 <DataGridTextColumn Header="Voltage" Width="120" Binding="{Binding Voltage}"/>
@@ -42,5 +46,17 @@
                 <DataGridCheckBoxColumn Width="80" Header="Error" Binding="{Binding PSUError}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="AE1BForceCurrentButton" Content="Force Current" HorizontalAlignment="Left" Margin="380,124,0,0" VerticalAlignment="Top" Width="90" Click="AE1BForceVoltageButton_Click" Grid.Row="1"/>
+        <Button x:Name="AE1BClearButton" Content="Clear" HorizontalAlignment="Left" Margin="490,124,0,0" VerticalAlignment="Top" Width="75" Click="AE1BClearButton_Click" Grid.Row="1"/>
+        <TextBox x:Name="AE1BForcedCurrentValue" HorizontalAlignment="Left" Height="23" Margin="170,124,0,0" TextWrapping="Wrap" Text="0.0" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <Label Content="AEPSU1 B" HorizontalAlignment="Left" Margin="20,121,0,0" VerticalAlignment="Top" Width="130" Grid.Row="1"/>
+        <Button x:Name="AE2BForceCCurrentButton" Content="Force Current" HorizontalAlignment="Left" Margin="380,154,0,0" VerticalAlignment="Top" Width="90" Click="AE2BForceVoltageButton_Click" Grid.Row="1"/>
+        <Button x:Name="AE2BClearButton" Content="Clear" HorizontalAlignment="Left" Margin="490,154,0,0" VerticalAlignment="Top" Width="75" Click="AE2BClearButton_Click" Grid.Row="1"/>
+        <TextBox x:Name="AE2BForcedCurrentValue" HorizontalAlignment="Left" Height="23" Margin="170,154,0,0" TextWrapping="Wrap" Text="0.0" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <Label Content="AEPSU2 B" HorizontalAlignment="Left" Margin="20,151,0,0" VerticalAlignment="Top" Width="130" Grid.Row="1"/>
+        <Button x:Name="AE3BForceCurrentButton" Content="Force Current" HorizontalAlignment="Left" Margin="380,182,0,0" VerticalAlignment="Top" Width="90" Click="AE3BForceVoltageButton_Click" Grid.Row="1"/>
+        <Button x:Name="AE3BClearButton" Content="Clear" HorizontalAlignment="Left" Margin="490,182,0,0" VerticalAlignment="Top" Width="75" Click="AE3BClearButton_Click" Grid.Row="1"/>
+        <TextBox x:Name="AE3BForcedCurrentValue" HorizontalAlignment="Left" Height="23" Margin="170,182,0,0" TextWrapping="Wrap" Text="0.0" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <Label Content="AEPSU3 B" HorizontalAlignment="Left" Margin="20,179,0,0" VerticalAlignment="Top" Width="130" Grid.Row="1"/>
     </Grid>
 </UserControl>
