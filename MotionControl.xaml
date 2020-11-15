@@ -20,5 +20,31 @@
         <CheckBox Content="Clockwise" HorizontalAlignment="Left" Margin="350,69,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
         <TextBox x:Name="CurrentSpeedSetpointTextBox" HorizontalAlignment="Left" Height="23" Margin="445,144,0,0" TextWrapping="Wrap" Text="0.0" VerticalAlignment="Top" Width="120"/>
         <Label Content="Current Setpoint" HorizontalAlignment="Left" Margin="170,141,0,0" VerticalAlignment="Top" Width="130"/>
+        <Button x:Name="LiftMotorContactOnButton" Content="On" HorizontalAlignment="Left" Margin="170,192,0,0" VerticalAlignment="Top" Width="75" Click="LiftMotorContactOnButton_Click" />
+        <Button x:Name="LiftMotorContactOffButton" Content="Off" HorizontalAlignment="Left" Margin="260,192,0,0" VerticalAlignment="Top" Width="75" Click="LiftMotorContactOffButton_Click" />
+        <TextBox x:Name="LiftMotorContactStateTextBox" HorizontalAlignment="Left" Height="23" Margin="445,193,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Lift Motor Contact" HorizontalAlignment="Left" Margin="20,189,0,0" VerticalAlignment="Top" Width="130"/>
+        <Button x:Name="LiftMotorForwardMoveButton" Content="Up" HorizontalAlignment="Left" Margin="170,237,0,0" VerticalAlignment="Top" Width="75" Click="LiftMotorForwardMoveButton_Click" />
+        <Button x:Name="LiftMotorReverseMoveButton" Content="Down" HorizontalAlignment="Left" Margin="260,237,0,0" VerticalAlignment="Top" Width="75" Click="LiftMotorReverseMoveButton_Click" />
+        <Button x:Name="LiftMotorStopButton" Content="Stop" HorizontalAlignment="Left" Margin="350,237,0,0" VerticalAlignment="Top" Width="75" Click="LiftMotorStopButton_Click" />
+        <Label Content="Lift Motor" HorizontalAlignment="Left" Margin="20,234,0,0" VerticalAlignment="Top" Width="130"/>
+        <CheckBox x:Name="LiftMotorReady" Content="Ready" HorizontalAlignment="Left" Margin="450,240,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="LiftMotorInAlarm" Content="Alarm" HorizontalAlignment="Left" Margin="510,240,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="LiftMotorMoving" Content="Moving" HorizontalAlignment="Left" Margin="570,240,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="LiftMotorAtForwardEnd" Content="Up" HorizontalAlignment="Left" Margin="630,240,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="LiftMotorAtReverseEnd" Content="Down" HorizontalAlignment="Left" Margin="690,240,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="SwingMotorContactOnButton" Content="On" HorizontalAlignment="Left" Margin="170,277,0,0" VerticalAlignment="Top" Width="75" Click="SwingMotorContactOnButton_Click" />
+        <Button x:Name="SwingMotorContactOffButton" Content="Off" HorizontalAlignment="Left" Margin="260,277,0,0" VerticalAlignment="Top" Width="75" Click="SwingMotorContactOffButton_Click" />
+        <TextBox x:Name="SwingMotorContactStateTextBox" HorizontalAlignment="Left" Height="23" Margin="445,278,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Swing Motor Contact" HorizontalAlignment="Left" Margin="20,274,0,0" VerticalAlignment="Top" Width="130"/>
+        <Button x:Name="SwingMotorForwardMoveButton" Content="Out" HorizontalAlignment="Left" Margin="170,322,0,0" VerticalAlignment="Top" Width="75" Click="SwingMotorForwardMoveButton_Click" />
+        <Button x:Name="SwingMotorReverseMoveButton" Content="In" HorizontalAlignment="Left" Margin="260,322,0,0" VerticalAlignment="Top" Width="75" Click="SwingMotorReverseMoveButton_Click" />
+        <Button x:Name="SwingMotorStopButton" Content="Stop" HorizontalAlignment="Left" Margin="350,322,0,0" VerticalAlignment="Top" Width="75" Click="SwingMotorStopButton_Click" />
+        <Label Content="Swing Motor" HorizontalAlignment="Left" Margin="20,319,0,0" VerticalAlignment="Top" Width="130"/>
+        <CheckBox x:Name="SwingMotorReady" Content="Ready" HorizontalAlignment="Left" Margin="450,325,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="SwingMotorInAlarm" Content="Alarm" HorizontalAlignment="Left" Margin="510,325,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="SwingMotorMoving" Content="Moving" HorizontalAlignment="Left" Margin="570,325,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="SwingMotorAtForwardEnd" Content="Out" HorizontalAlignment="Left" Margin="630,325,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="SwingMotorAtReverseEnd" Content="In" HorizontalAlignment="Left" Margin="690,325,0,0" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>

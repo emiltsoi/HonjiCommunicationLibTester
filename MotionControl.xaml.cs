@@ -52,6 +52,9 @@ namespace SiemensCommunicatinLibTester
                     PumpStateTextBox.Text = "Overloaded";
                 else
                     PumpStateTextBox.Text = "Unknown";
+                DisplayUpdateHelper.UpdateSimpleOnOffDeviceState(motionSystem.GetLiftMotorContactor(), LiftMotorContactStateTextBox);
+                DisplayUpdateHelper.UpdateSimpleOnOffDeviceState(motionSystem.GetSwingMotorContactor(), SwingMotorContactStateTextBox);
+                UpdateMotorDisplay();
             }
             CommandManager.InvalidateRequerySuggested();
         }
@@ -85,6 +88,71 @@ namespace SiemensCommunicatinLibTester
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             motionSystem.GetVSD().SetMotorDirection(false);
+        }
+
+        private void LiftMotorContactOnButton_Click(object sender, RoutedEventArgs e)
+        {
+            motionSystem.GetLiftMotorContactor().SetManualOn();
+        }
+
+        private void LiftMotorContactOffButton_Click(object sender, RoutedEventArgs e)
+        {
+            motionSystem.GetLiftMotorContactor().SetManualOff();
+        }
+
+        private void LiftMotorForwardMoveButton_Click(object sender, RoutedEventArgs e)
+        {
+            motionSystem.GetLiftMotor().StartForwardMove();
+        }
+
+        private void LiftMotorReverseMoveButton_Click(object sender, RoutedEventArgs e)
+        {
+            motionSystem.GetLiftMotor().StartReverseMove();
+        }
+
+        private void LiftMotorStopButton_Click(object sender, RoutedEventArgs e)
+        {
+            motionSystem.GetLiftMotor().StopMove();
+        }
+
+        private void SwingMotorContactOnButton_Click(object sender, RoutedEventArgs e)
+        {
+            motionSystem.GetSwingMotorContactor().SetManualOn();
+        }
+
+        private void SwingMotorContactOffButton_Click(object sender, RoutedEventArgs e)
+        {
+            motionSystem.GetSwingMotorContactor().SetManualOff();
+        }
+
+        private void SwingMotorForwardMoveButton_Click(object sender, RoutedEventArgs e)
+        {
+            motionSystem.GetSwingMotor().StartForwardMove();
+        }
+
+        private void SwingMotorReverseMoveButton_Click(object sender, RoutedEventArgs e)
+        {
+            motionSystem.GetSwingMotor().StartReverseMove();
+        }
+
+        private void SwingMotorStopButton_Click(object sender, RoutedEventArgs e)
+        {
+            motionSystem.GetSwingMotor().StopMove();
+        }
+
+        private void UpdateMotorDisplay()
+        {
+            LiftMotorReady.IsChecked = motionSystem.GetLiftMotor().IsReady();
+            LiftMotorInAlarm.IsChecked = motionSystem.GetLiftMotor().HasAlarm();
+            LiftMotorMoving.IsChecked = motionSystem.GetLiftMotor().IsMoving();
+            LiftMotorAtForwardEnd.IsChecked = motionSystem.GetLiftMotor().AtForwardStrokeEnd();
+            LiftMotorAtReverseEnd.IsChecked = motionSystem.GetLiftMotor().AtReverseStrokeEnd();
+
+            SwingMotorReady.IsChecked = motionSystem.GetSwingMotor().IsReady();
+            SwingMotorInAlarm.IsChecked = motionSystem.GetSwingMotor().HasAlarm();
+            SwingMotorMoving.IsChecked = motionSystem.GetSwingMotor().IsMoving();
+            SwingMotorAtForwardEnd.IsChecked = motionSystem.GetSwingMotor().AtForwardStrokeEnd();
+            SwingMotorAtReverseEnd.IsChecked = motionSystem.GetSwingMotor().AtReverseStrokeEnd();
         }
     }
 }
