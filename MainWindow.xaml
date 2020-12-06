@@ -36,6 +36,9 @@
         <TabItem Header="Motion">
             <local:MotionControl></local:MotionControl>
         </TabItem>
+        <TabItem Header="Processes">
+            <local:Processes></local:Processes>
+        </TabItem>
     </TabControl>
 
 </Window>

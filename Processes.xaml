@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="SiemensCommunicatinLibTester.Processes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SiemensCommunicatinLibTester"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White" Margin="0,0,0,-350">
+        <Label Content="Low Vacuum Flow" HorizontalAlignment="Left" Margin="20,104,0,0" VerticalAlignment="Top" Width="130"/>
+        <Button x:Name="LVFStartButton" Content="Start" HorizontalAlignment="Left" Margin="170,104,0,0" VerticalAlignment="Top" Width="75" Click="LVFStartButton_Click"/>
+        <Button x:Name="LVFStopButton" Content="Stop" HorizontalAlignment="Left" Margin="260,104,0,0" VerticalAlignment="Top" Width="75" Click="LVFStopButton_Click"/>
+        <TextBox x:Name="LVFState" HorizontalAlignment="Left" Height="23" Margin="370,104,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="LVFError" HorizontalAlignment="Left" Height="23" Margin="525,104,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="220"/>
+        <Label Content="High Vacuum Flow" HorizontalAlignment="Left" Margin="20,139,0,0" VerticalAlignment="Top" Width="130"/>
+        <Button x:Name="HVFStartButton" Content="Start" HorizontalAlignment="Left" Margin="170,142,0,0" VerticalAlignment="Top" Width="75" Click="HVFStartButton_Click"/>
+        <Button x:Name="HVFStopButton" Content="Stop" HorizontalAlignment="Left" Margin="260,142,0,0" VerticalAlignment="Top" Width="75" Click="HVFStopButton_Click"/>
+        <TextBox x:Name="HVFState" HorizontalAlignment="Left" Height="23" Margin="370,142,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="HVFError" HorizontalAlignment="Left" Height="23" Margin="525,142,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="220"/>
+        <Label Content="Vent Flow" HorizontalAlignment="Left" Margin="20,180,0,0" VerticalAlignment="Top" Width="130"/>
+        <Button x:Name="VFStartButton" Content="Start" HorizontalAlignment="Left" Margin="170,180,0,0" VerticalAlignment="Top" Width="75" Click="VFStartButton_Click"/>
+        <Button x:Name="VFStopButton" Content="Stop" HorizontalAlignment="Left" Margin="260,180,0,0" VerticalAlignment="Top" Width="75" Click="VFStopButton_Click"/>
+        <TextBox x:Name="VFState" HorizontalAlignment="Left" Height="23" Margin="370,180,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="VFError" HorizontalAlignment="Left" Height="23" Margin="525,180,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="220"/>
+    </Grid>
+</UserControl>
