@@ -43,6 +43,7 @@ namespace SiemensCommunicatinLibTester
                 UpdateProcessDisplay(process.GetHighVacuumFlow(), HVFState, HVFError);
                 UpdateProcessDisplay(process.GetVentFlow(), VFState, VFError);
                 UpdateProcessDisplay(process.GetRecipe(), PFState, PFError);
+                PFStartButton.IsEnabled = process.GetRecipe().CanRecipeFlowStart();
                 RunStep.IsEnabled = process.GetRecipe().IsReadyToExecuteRecipeStep();
                 CanRunStep.IsChecked = process.GetRecipe().IsReadyToExecuteRecipeStep();
                 StepElapsedTime.Text = process.GetRecipe().GetRemainingTimeOfCurrentStepInSecond().ToString() + "s";
