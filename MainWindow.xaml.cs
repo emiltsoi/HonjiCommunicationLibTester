@@ -23,9 +23,9 @@ namespace SiemensCommunicatinLibTester
     /// </summary>
     public partial class MainWindow : Window
     {
-        public S1200Client client = new S1200Client(); // need PLC connection
+        //public S1200Client client = new S1200Client(); // need PLC connection
         //public S1200ClientReadOnly client = new S1200ClientReadOnly(); // need PLC connection
-        //public S1200ClientStud client = new S1200ClientStud(); // for local testing
+        public S1200ClientStud client = new S1200ClientStud(); // for local testing
 
         public TimeSpan refreshRateTimeSpan = new TimeSpan(0, 0, 0, 1, 0);
         public MainWindow()
@@ -74,6 +74,11 @@ namespace SiemensCommunicatinLibTester
         private void ButtonClearAllManualOperation_Click(object sender, RoutedEventArgs e)
         {
             client.GetDevices().ClearAllManualOperations();
+        }
+
+        private void ButtonClearAlarm_Click(object sender, RoutedEventArgs e)
+        {
+            client.ClearAlarms();
         }
     }
 }

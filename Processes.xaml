@@ -22,5 +22,14 @@
         <Button x:Name="VFStopButton" Content="Stop" HorizontalAlignment="Left" Margin="260,180,0,0" VerticalAlignment="Top" Width="75" Click="VFStopButton_Click"/>
         <TextBox x:Name="VFState" HorizontalAlignment="Left" Height="23" Margin="370,180,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="VFError" HorizontalAlignment="Left" Height="23" Margin="525,180,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="220"/>
+        <Label Content="Recipe Flow" HorizontalAlignment="Left" Margin="20,215,0,0" VerticalAlignment="Top" Width="130"/>
+        <Button x:Name="PFStartButton" Content="Start" HorizontalAlignment="Left" Margin="170,215,0,0" VerticalAlignment="Top" Width="75" Click="PFStartButton_Click"/>
+        <Button x:Name="PFStopButton" Content="Stop" HorizontalAlignment="Left" Margin="260,215,0,0" VerticalAlignment="Top" Width="75" Click="PFStopButton_Click"/>
+        <TextBox x:Name="PFState" HorizontalAlignment="Left" Height="23" Margin="370,215,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="PFError" HorizontalAlignment="Left" Height="23" Margin="525,215,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="220"/>
+        <CheckBox x:Name="CanRunStep" Content="CanRunRecipeStep" HorizontalAlignment="Left" Margin="170,265,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.908,-9.267"/>
+        <Button x:Name="RunStep" Content="RunStep" HorizontalAlignment="Left" Margin="345,262,0,0" VerticalAlignment="Top" Width="75" Click="RunStep_Click"/>
+        <TextBox x:Name="StepElapsedTime" HorizontalAlignment="Left" Height="23" Margin="625,259,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Elasped time" HorizontalAlignment="Left" Margin="525,257,0,0" VerticalAlignment="Top" Width="80"/>
     </Grid>
 </UserControl>

@@ -16,6 +16,7 @@
                 <TextBox x:Name="TextBoxResults" HorizontalAlignment="Left" Height="23" Margin="31,84,0,0" TextWrapping="Wrap" Text="Results" VerticalAlignment="Top" Width="306" IsReadOnly="True" IsUndoEnabled="False" TextOptions.TextFormattingMode="Display"/>
                 <TextBox x:Name="TextBoxDateTime" HorizontalAlignment="Left" Height="23" Margin="31,280,0,0" TextWrapping="Wrap" Text="Date Time" VerticalAlignment="Top" Width="286"/>
                 <Button x:Name="ButtonClearAllManualOperation" Content="Clear Manual Operations" HorizontalAlignment="Left" Margin="31,195,0,0" VerticalAlignment="Top" Width="186" Click="ButtonClearAllManualOperation_Click"/>
+                <Button x:Name="ButtonClearAlarm" Content="Clear Alarms and Warnings" HorizontalAlignment="Left" Margin="31,235,0,0" VerticalAlignment="Top" Width="186" Click="ButtonClearAlarm_Click"/>
             </Grid>
         </TabItem>
         <TabItem Header="Vacuum Control">

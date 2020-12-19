@@ -42,6 +42,10 @@ namespace SiemensCommunicatinLibTester
                 UpdateProcessDisplay(process.GetLowVacuumFlow(), LVFState, LVFError);
                 UpdateProcessDisplay(process.GetHighVacuumFlow(), HVFState, HVFError);
                 UpdateProcessDisplay(process.GetVentFlow(), VFState, VFError);
+                UpdateProcessDisplay(process.GetRecipe(), PFState, PFError);
+                RunStep.IsEnabled = process.GetRecipe().IsReadyToExecuteRecipeStep();
+                CanRunStep.IsChecked = process.GetRecipe().IsReadyToExecuteRecipeStep();
+                StepElapsedTime.Text = process.GetRecipe().GetRemainingTimeOfCurrentStepInSecond().ToString() + "s";
             }
             CommandManager.InvalidateRequerySuggested();
         }
@@ -86,6 +90,56 @@ namespace SiemensCommunicatinLibTester
             {
                 errors.Text += error + ", ";
             }
+        }
+
+        private void PFStartButton_Click(object sender, RoutedEventArgs e)
+        {
+            process.GetRecipe().StartFlow();
+        }
+
+        private void PFStopButton_Click(object sender, RoutedEventArgs e)
+        {
+            process.GetRecipe().StopFlow();
+        }
+
+        private void RunStep_Click(object sender, RoutedEventArgs e)
+        {
+            var settings = new RecipeSettings();
+            settings.basePressureInPa = 3e-5f;
+            settings.basePressureTimeoutTime = new TimeSpan(0, 60, 0);
+            settings.biasCurrentLimitTimeout = new TimeSpan(0, 0, 5);
+            settings.biasCurrentMaxLimitInAmpere = 10;
+            settings.biasVoltageMaxVariationInVolt = 30;
+            settings.biasVoltageVariationTimeout = new TimeSpan(0, 0, 5);
+            settings.magnetronCurrentLimitTimeout = new TimeSpan(0, 0, 5);
+            settings.magnetronCurrentMaxLimitInAmpere = 10;
+            settings.magnetronCurrentMaxVariationInAmpere = 0.5f;
+            settings.magnetronCurrentVariationTimeout = new TimeSpan(0, 0, 5);
+            settings.mfcFlowRateMaxVariationInSccm = 10;
+            settings.mfcFlowRateVariationTimeout = new TimeSpan(0, 0, 5);
+            settings.sampleRotationMaxVariationInRPM = 1.0f;
+            settings.sampleRotationSpeedInRPM = 3.0f;
+            settings.sampleRotationVariationTimeout = new TimeSpan(0, 0, 5);
+            settings.tmpRotationSpeedInHz = 440;
+            process.GetRecipe().SetRecipeSettings(settings);
+
+            var stepParams = new RecipeStepParameter();
+            stepParams.arc1CurrentInAmpere = 1.0f;
+            stepParams.arc2CurrentInAmpere = 1.1f;
+            stepParams.arc3CurrentInAmpere = 1.2f;
+            stepParams.arc4CurrentInAmpere = 1.3f;
+            stepParams.arc5CurrentInAmpere = 1.4f;
+            stepParams.arc6CurrentInAmpere = 1.5f;
+            stepParams.biasVoltageInVolt = 100;
+            stepParams.durationInSecond = 300;
+            stepParams.heatingPlate1SetpointInC = 40;
+            stepParams.heatingPlate2SetpointInC = 50;
+            stepParams.heatingPlate3SetpointInC = 60;
+            stepParams.mfc1FlowRateInSccm = 20;
+            stepParams.mfc2FlowRateInSccm = 30;
+            stepParams.stepNumber = 1;
+            stepParams.stepType = RecipeStepType.Etching;
+            process.GetRecipe().RunRecipeStep(stepParams);
         }
     }
 }
