@@ -82,5 +82,6 @@
         <TextBox x:Name="TMPCurrent" HorizontalAlignment="Left" Height="23" Margin="450,626,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
         <Label Content="Current" HorizontalAlignment="Left" Margin="320,623,0,0" VerticalAlignment="Top" Width="130"/>
         <GroupBox Header="TMP" HorizontalAlignment="Left" Height="255" VerticalAlignment="Top" Width="570" Margin="20,445,0,0"/>
+        <TextBox x:Name="VacuumErrors" HorizontalAlignment="Left" Height="23" Margin="25,720,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="220"/>
     </Grid>
 </UserControl>

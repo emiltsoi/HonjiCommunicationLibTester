@@ -26,6 +26,7 @@
         <Label Content="Magnetron Water Temperature" HorizontalAlignment="Left" Margin="20,242,0,0" VerticalAlignment="Top" Width="175"/>
         <TextBox x:Name="ChamberWaterTemperatureState" HorizontalAlignment="Left" Height="23" Margin="445,277,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="120"/>
         <Label Content="Chamber Water Temperature" HorizontalAlignment="Left" Margin="20,273,0,0" VerticalAlignment="Top" Width="165"/>
+        <TextBox x:Name="UtilityErrors" HorizontalAlignment="Left" Height="23" Margin="25,322,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="220"/>
 
     </Grid>
 </UserControl>

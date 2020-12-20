@@ -143,6 +143,11 @@ namespace SiemensCommunicatinLibTester
                 UpdateRotaryPumpState();
                 UpdateVacuumSwitchState();
                 UpdateTMPStatus();
+                VacuumErrors.Text = "";
+                foreach (var error in vacuumSystem.GetErrors())
+                {
+                    VacuumErrors.Text += error + ", ";
+                }
             }
             CommandManager.InvalidateRequerySuggested(); 
         }

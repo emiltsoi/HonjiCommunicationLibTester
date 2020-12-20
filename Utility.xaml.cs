@@ -50,6 +50,12 @@ namespace SiemensCommunicatinLibTester
                 UpdateMainsOn();
                 UpdateEmergencyButton();
                 UpdateTemperature();
+                UtilityErrors.Text = "";
+                foreach (var error in utility.GetErrors())
+                {
+                    UtilityErrors.Text += error + ", ";
+
+                }
             }
             CommandManager.InvalidateRequerySuggested();
         }

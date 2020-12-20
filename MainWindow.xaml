@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SiemensCommunicatinLibTester"
         mc:Ignorable="d"
-        Title="S1200 PLC Tester" Height="800" Width="800" Background="#FF4D6D8D"
+        Title="S1200 PLC Tester" Height="1024" Width="1024" Background="#FF4D6D8D"
         Closing="Window_Closing">
     <TabControl Margin="0,0,-204,-174">
         <TabItem Header="Main">
