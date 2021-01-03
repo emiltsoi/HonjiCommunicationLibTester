@@ -47,6 +47,8 @@ namespace SiemensCommunicatinLibTester
                 RunStep.IsEnabled = process.GetRecipe().IsReadyToExecuteRecipeStep();
                 CanRunStep.IsChecked = process.GetRecipe().IsReadyToExecuteRecipeStep();
                 StepElapsedTime.Text = process.GetRecipe().GetRemainingTimeOfCurrentStepInSecond().ToString() + "s";
+                CurrentStep.Text = Convert.ToString(process.GetRecipe().GetCurrentRecipeStepParameters().stepNumber);
+                CurrentProcess.Text = Convert.ToString(process.GetRecipe().GetCurrentRecipeStepParameters().stepType);
             }
             CommandManager.InvalidateRequerySuggested();
         }
@@ -95,18 +97,8 @@ namespace SiemensCommunicatinLibTester
 
         private void PFStartButton_Click(object sender, RoutedEventArgs e)
         {
-            process.GetRecipe().StartFlow();
-        }
-
-        private void PFStopButton_Click(object sender, RoutedEventArgs e)
-        {
-            process.GetRecipe().StopFlow();
-        }
-
-        private void RunStep_Click(object sender, RoutedEventArgs e)
-        {
             var settings = new RecipeSettings();
-            settings.basePressureInPa = 3e-5f;
+            settings.basePressureInPa = 7e-4f;
             settings.basePressureTimeoutTime = new TimeSpan(0, 60, 0);
             settings.biasCurrentLimitTimeout = new TimeSpan(0, 0, 5);
             settings.biasCurrentMaxLimitInAmpere = 10;
@@ -123,23 +115,32 @@ namespace SiemensCommunicatinLibTester
             settings.sampleRotationVariationTimeout = new TimeSpan(0, 0, 5);
             settings.tmpRotationSpeedInHz = 440;
             process.GetRecipe().SetRecipeSettings(settings);
+            process.GetRecipe().StartFlow();
+        }
 
+        private void PFStopButton_Click(object sender, RoutedEventArgs e)
+        {
+            process.GetRecipe().StopFlow();
+        }
+
+        private void RunStep_Click(object sender, RoutedEventArgs e)
+        {
             var stepParams = new RecipeStepParameter();
-            stepParams.arc1CurrentInAmpere = 1.0f;
-            stepParams.arc2CurrentInAmpere = 1.1f;
-            stepParams.arc3CurrentInAmpere = 1.2f;
-            stepParams.arc4CurrentInAmpere = 1.3f;
-            stepParams.arc5CurrentInAmpere = 1.4f;
-            stepParams.arc6CurrentInAmpere = 1.5f;
-            stepParams.biasVoltageInVolt = 100;
-            stepParams.durationInSecond = 300;
-            stepParams.heatingPlate1SetpointInC = 40;
-            stepParams.heatingPlate2SetpointInC = 50;
-            stepParams.heatingPlate3SetpointInC = 60;
-            stepParams.mfc1FlowRateInSccm = 20;
-            stepParams.mfc2FlowRateInSccm = 30;
-            stepParams.stepNumber = 1;
-            stepParams.stepType = RecipeStepType.Etching;
+            stepParams.arc1CurrentInAmpere = float.Parse(Arc1In.Text);
+            stepParams.arc2CurrentInAmpere = float.Parse(Arc2In.Text);
+            stepParams.arc3CurrentInAmpere = float.Parse(Arc3In.Text);
+            stepParams.arc4CurrentInAmpere = float.Parse(Arc4In.Text);
+            stepParams.arc5CurrentInAmpere = float.Parse(Arc5In.Text);
+            stepParams.arc6CurrentInAmpere = float.Parse(Arc6In.Text);
+            stepParams.biasVoltageInVolt = Convert.ToUInt16(BiasIn.Text);
+            stepParams.durationInSecond = Convert.ToUInt32(DurationIn.Text);
+            stepParams.heatingPlate1SetpointInC = Convert.ToInt16(Heater1In.Text);
+            stepParams.heatingPlate2SetpointInC = Convert.ToInt16(Heater2In.Text);
+            stepParams.heatingPlate3SetpointInC = Convert.ToInt16(Heater3In.Text);
+            stepParams.mfc1FlowRateInSccm = float.Parse(MFC1In.Text);
+            stepParams.mfc2FlowRateInSccm = float.Parse(MFC2In.Text);
+            stepParams.stepNumber = Convert.ToUInt16(StepNumIn.Text);
+            stepParams.stepType = (RecipeStepType)Convert.ToUInt16(StepTypeIn.Text);
             process.GetRecipe().RunRecipeStep(stepParams);
         }
     }

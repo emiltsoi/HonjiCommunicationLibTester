@@ -31,5 +31,39 @@
         <Button x:Name="RunStep" Content="RunStep" HorizontalAlignment="Left" Margin="345,262,0,0" VerticalAlignment="Top" Width="75" Click="RunStep_Click"/>
         <TextBox x:Name="StepElapsedTime" HorizontalAlignment="Left" Height="23" Margin="625,259,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="120"/>
         <Label Content="Elasped time" HorizontalAlignment="Left" Margin="525,257,0,0" VerticalAlignment="Top" Width="80"/>
+        <TextBox x:Name="CurrentProcess" HorizontalAlignment="Left" Height="23" Margin="370,302,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="CurrentStep" HorizontalAlignment="Left" Height="23" Margin="625,302,0,0" TextWrapping="Wrap" Text="Unknown" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Current Process" HorizontalAlignment="Left" Margin="185,298,0,0" VerticalAlignment="Top" Width="130"/>
+        <Label Content="Current Step" HorizontalAlignment="Left" Margin="525,299,0,0" VerticalAlignment="Top" Width="90"/>
+        <TextBox x:Name="StepTypeIn" HorizontalAlignment="Left" Height="23" Margin="170,362,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="81"/>
+        <TextBox x:Name="StepNumIn" HorizontalAlignment="Left" Height="23" Margin="260,362,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="81"/>
+        <TextBox x:Name="Arc1In" HorizontalAlignment="Left" Height="23" Margin="349,362,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="81"/>
+        <TextBox x:Name="Arc2In" HorizontalAlignment="Left" Height="23" Margin="439,362,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="81"/>
+        <TextBox x:Name="Arc3In" HorizontalAlignment="Left" Height="23" Margin="526,362,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="81"/>
+        <TextBox x:Name="Arc4In" HorizontalAlignment="Left" Height="23" Margin="619,362,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Step Type" HorizontalAlignment="Left" Margin="170,331,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Step #" HorizontalAlignment="Left" Margin="256,331,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="ARC1" HorizontalAlignment="Left" Margin="345,331,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="ARC2" HorizontalAlignment="Left" Margin="440,330,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="ARC3" HorizontalAlignment="Left" Margin="526,330,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="ARC4" HorizontalAlignment="Left" Margin="619,331,0,0" VerticalAlignment="Top" Width="81"/>
+        <TextBox x:Name="Arc5In" HorizontalAlignment="Left" Height="23" Margin="170,430,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="81" Text="0"/>
+        <TextBox x:Name="Arc6In" HorizontalAlignment="Left" Height="23" Margin="260,430,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="81"/>
+        <TextBox x:Name="BiasIn" HorizontalAlignment="Left" Height="23" Margin="349,430,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="81"/>
+        <TextBox x:Name="Heater1In" HorizontalAlignment="Left" Height="23" Margin="439,430,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="81"/>
+        <TextBox x:Name="Heater2In" HorizontalAlignment="Left" Height="23" Margin="526,430,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="81"/>
+        <TextBox x:Name="Heater3In" HorizontalAlignment="Left" Height="23" Margin="619,430,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="ARC5" HorizontalAlignment="Left" Margin="170,399,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="ARC6" HorizontalAlignment="Left" Margin="256,399,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Bias" HorizontalAlignment="Left" Margin="345,399,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Heater1" HorizontalAlignment="Left" Margin="440,398,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Heater2" HorizontalAlignment="Left" Margin="526,398,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Heater3" HorizontalAlignment="Left" Margin="619,399,0,0" VerticalAlignment="Top" Width="81"/>
+        <TextBox x:Name="MFC1In" HorizontalAlignment="Left" Height="23" Margin="170,501,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="81"/>
+        <TextBox x:Name="MFC2In" HorizontalAlignment="Left" Height="23" Margin="260,501,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="81"/>
+        <TextBox x:Name="DurationIn" HorizontalAlignment="Left" Height="23" Margin="349,501,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Top" Width="81"></TextBox>
+        <Label Content="MFC1" HorizontalAlignment="Left" Margin="170,470,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="MFC2" HorizontalAlignment="Left" Margin="256,470,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Duration" HorizontalAlignment="Left" Margin="345,470,0,0" VerticalAlignment="Top" Width="81"/>
     </Grid>
 </UserControl>
