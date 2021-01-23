@@ -102,11 +102,11 @@ namespace SiemensCommunicatinLibTester
             settings.basePressureTimeoutTime = new TimeSpan(0, 60, 0);
             settings.biasCurrentLimitTimeout = new TimeSpan(0, 0, 5);
             settings.biasCurrentMaxLimitInAmpere = 10;
-            settings.biasVoltageMaxVariationInVolt = 30;
+            settings.biasVoltageMaxVariationInVolt = 100;
             settings.biasVoltageVariationTimeout = new TimeSpan(0, 0, 5);
             settings.magnetronCurrentLimitTimeout = new TimeSpan(0, 0, 5);
             settings.magnetronCurrentMaxLimitInAmpere = 10;
-            settings.magnetronCurrentMaxVariationInAmpere = 0.5f;
+            settings.magnetronCurrentMaxVariationInAmpere = 5.0f;
             settings.magnetronCurrentVariationTimeout = new TimeSpan(0, 0, 5);
             settings.mfcFlowRateMaxVariationInSccm = 10;
             settings.mfcFlowRateVariationTimeout = new TimeSpan(0, 0, 5);
