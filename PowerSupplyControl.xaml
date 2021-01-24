@@ -42,6 +42,7 @@
                 <DataGridTextColumn Header="PSU" Width="80" Binding="{Binding PSU}"/>
                 <DataGridTextColumn Header="Voltage" Width="120" Binding="{Binding Voltage}"/>
                 <DataGridTextColumn Header="Current" Width="80" Binding="{Binding Current}"/>
+                <DataGridTextColumn Header="Setpt" Width="80" Binding="{Binding Setpoint}"/>
                 <DataGridCheckBoxColumn Width="80" Header="Connected" Binding="{Binding PSUConnected}"/>
                 <DataGridCheckBoxColumn Width="80" Header="Error" Binding="{Binding PSUError}"/>
             </DataGrid.Columns>

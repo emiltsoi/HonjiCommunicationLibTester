@@ -30,10 +30,11 @@ namespace SiemensCommunicatinLibTester
     {
         private IAEPowerSupplyBase device;
         public string PSU { get; set; }
-        private string voltage, current;
+        private string voltage, current, setpoint;
         private bool psuConnected, psuError;
         public string Voltage { get { return voltage; } set { if (voltage != value) { voltage = value; NotifyPropertyChanged(); } } }
         public string Current { get { return current; } set { if (current != value) { current = value; NotifyPropertyChanged(); } } }
+        public string Setpoint { get { return setpoint; } set { if (setpoint != value) { setpoint = value; NotifyPropertyChanged(); } } }
         public bool PSUConnected { get { return psuConnected; } set { if (psuConnected != value) { psuConnected = value; NotifyPropertyChanged(); } } }
         public bool PSUError { get { return psuError; } set { if (psuError != value) { psuError = value; NotifyPropertyChanged(); } } }
 
@@ -54,6 +55,7 @@ namespace SiemensCommunicatinLibTester
         {
             Voltage = this.device.GetVoltageReadingInVolt().ToString();
             Current = this.device.GetCurrentReadingInAmp().ToString();
+            Setpoint = this.device.GetRawSetpoint().ToString();
             PSUConnected = this.device.IsConnected();
             PSUError = this.device.IsInError();
         }
